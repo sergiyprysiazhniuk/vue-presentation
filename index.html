@@ -6,6 +6,9 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="node_modules/shower-material/styles/screen-4x3.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
 </head>
 <body class="shower list">
 
@@ -45,6 +48,13 @@
 		</ul>
 	</section>
 
+	<section class="slide">
+		<h2>Deja Vu<span style="opacity: 0.3">e</span>?</h2>
+		<figure>
+			<img class="cover" src="pictures/dejavu.jpg">
+		</figure>
+	</section>
+
 	<section class="slide" id="founder">
 		<h2>Founder</h2>
 		<figure>
@@ -73,6 +83,27 @@
 		</figure>
 	</section>
 
+	<section class="slide">
+		<h2>Title</h2>
+		<p>GitHub stars and npm downloads</p>
+	</section>
+
+	<section class="slide">
+		<h2>Why Vue.js?</h2>
+		<ul>
+			<li class="next">Reason 1</li>
+			<li class="next">Reason 2</li>
+			<li class="next">Reason 3</li>
+			<li class="next">Reason 4</li>
+			<li class="next">Reason 5</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2>Title</h2>
+		<p>Vue definition (Progressive framework and so on)</p>
+	</section>
+
 	<section class="slide" id="layers">
 		<figure>
 			<img class="cover" src="pictures/layers.png">
@@ -85,18 +116,328 @@
 	</section>
 
 	<section class="slide" id="reactivity">
-			<figure>
-				<img class="cover" src="pictures/data.png">
-			</figure>
-			<style>
-				#layers .cover{
-					width: 100%;
-				}
-			</style>
-		</section>
+		<a href="https://vuejs.org/v2/guide/reactivity.html"></a>
+		<figure>
+			<img class="cover" src="pictures/data.png">
+		</figure>
+		<style>
+			#layers .cover{
+				width: 100%;
+			}
+		</style>
+	</section>
 
 	<section class="slide">
-		<h2>Reactivity</h2>
+		<h2>Hello World!</h2>
+		<pre class="html">
+			<code>&lt;div id="app"&gt;</code>
+			<code>  {{ message }}</code>
+			<code>&lt;/div&gt;</code>
+		</pre>
+		<pre class="javascript">
+			<code>
+				var app = new Vue({
+					el: '#app',
+					data: {
+						message: 'Hello Vue!'
+					}
+				})	
+			</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>v-if, v-else examples</h2>
+	</section>
+	
+	<section class="slide">
+		<h2>v-for example</h2>
+	</section>
+
+	<section class="slide">
+		<h2>interpolation {{}}, v-once</h2>
+	</section>
+
+	<section class="slide">
+		<h2>raw html v-html</h2>
+
+		&lt;div v-html="rawHtml"&gt;&lt;/div&gt;
+	</section>
+
+	<section class="slide">
+		<h2>Dynamic attributes</h2>
+
+		&lt;div v-bind:id="dynamicId"&gt;&lt;/div&gt;
+		&lt;button v-bind:disabled="isButtonDisabled"&gt;Button&lt;/button&gt;
+	</section>
+
+	<section class="slide">
+		<h2>Using JavaScript Expressions</h2>
+		<a href="https://vuejs.org/v2/guide/syntax.html#Using-JavaScript-Expressions">LINK</a>
+	</section>
+
+	<section class="slide">
+		<h2>Directives</h2>
+		<a href="https://vuejs.org/v2/guide/syntax.html#Directives">LINK</a>
+	</section>
+
+	<section class="slide">
+		<h2>Arguments</h2>
+		<a href="https://vuejs.org/v2/guide/syntax.html#Arguments">LINK</a>
+	</section>
+
+	<section class="slide">
+		<h2>Modifiers</h2>
+		<a href="https://vuejs.org/v2/guide/syntax.html#Modifiers">LINK</a>
+	</section>
+
+	<section class="slide">
+		<h2>Shorthands</h2>
+		<a href="https://vuejs.org/v2/guide/syntax.html#Shorthands">LINK</a>
+	</section>
+
+	<section class="slide">
+		<h2>Other directives</h2>
+		<p>List of directives</p>
+	</section>
+
+	<section class="slide">
+		<h2>Computed Properties</h2>
+		<a href="https://vuejs.org/v2/guide/computed.html">LINK</a>
+	</section>
+
+	<section class="slide">
+		<h2>Watchers</h2>
+		<a href="https://vuejs.org/v2/guide/computed.html">LINK</a>
+	</section>
+
+	<section class="slide">
+		<h2>Class and Style Bindings</h2>
+		<a href="https://vuejs.org/v2/guide/class-and-style.html">LINK</a>
+	</section>
+
+	<section class="slide">
+		<h2>Event Handling</h2>
+		<a href="https://vuejs.org/v2/guide/events.html">LINK</a>
+	</section>
+
+	<section class="slide">
+		<h2>Form Input Bindings</h2>
+		<a href="https://vuejs.org/v2/guide/forms.html">LINK</a>
+	</section>
+
+	<section class="slide">
+		<h2>Components</h2>
+		<a href="https://vuejs.org/v2/guide/components.html">LINK</a>
+	</section>
+
+	<section class="slide">
+		<h2>Global and Local Registration</h2>
+		<a href="https://vuejs.org/v2/guide/components.html">LINK</a>
+	</section>
+
+	<section class="slide">
+		<h2>Composing-Components</h2>
+		<a href="https://vuejs.org/v2/guide/components.html#Composing-Components">LINK</a>
+	</section>
+
+	<section class="slide">
+		<h2>One-Way Data Flow</h2>
+		<a href="https://vuejs.org/v2/guide/components.html#One-Way-Data-Flow">LINK</a>
+	</section>
+	<section class="slide">
+		<h2>Custom Events</h2>
+		<a href="https://vuejs.org/v2/guide/components.html#Custom-Events">LINK</a>
+	</section>
+
+	<section class="slide">
+		<h2>Content Distribution with Slots</h2>
+		<a href="https://vuejs.org/v2/guide/components.html#Content-Distribution-with-Slots">LINK</a>
+	</section>
+
+	<section class="slide">
+		<h2>Dynamic Components</h2>
+		<a href="https://vuejs.org/v2/guide/components.html#Dynamic-Components">LINK</a>
+	</section>
+
+	<section class="slide">
+		<h2>Async-Components</h2>
+		<a href="https://vuejs.org/v2/guide/components.html#Async-Components">LINK</a>
+	</section>
+
+	<section class="slide">
+		<h2>Filters</h2>
+		<a href="https://vuejs.org/v2/guide/filters.html">LINK</a>
+	</section>
+
+	<section class="slide">
+		<h2>Mixins</h2>
+		<a href="https://vuejs.org/v2/guide/mixins.html">LINK</a>
+	</section>
+	
+	<section class="slide">
+		<h2>Plugins</h2>
+		<a href="https://vuejs.org/v2/guide/plugins.html">LINK</a>
+	</section>
+
+	<section class="slide">
+		<h2>Render Functions & JSX</h2>
+		<a href="https://vuejs.org/v2/guide/render-function.html">LINK</a>
+	</section>
+
+	<section class="slide">
+		<h2>TypeScript Support</h2>
+		<a href="https://vuejs.org/v2/guide/typescript.html">LINK</a>
+	</section>
+
+	<section class="slide">
+		<h2>Title</h2>
+		<pre class="javascript">
+			<code>var data = { a: 1 }</code>
+			<code>var vm = new Vue({</code>
+			<code>  el: '#example',</code>
+			<code>  data: data</code>
+			<code>})</code>
+			<code>vm.$data === data // => true</code>
+			<code>vm.$el === document.getElementById('example') // => true</code>
+		</pre>
+	</section>
+
+	<section class="slide" id="lifecycle">
+		<figure>
+			<img class="cover" src="pictures/lifecycle-1.png">
+		</figure>
+		<style>
+			#layers .cover{
+				width: 100%;
+			}
+		</style>
+	</section>
+
+	<section class="slide">
+		<h2>Title</h2>
+		<pre class="javascript">
+			<code>new Vue({</code>
+			<code>data: {</code>
+			<code>a: 1</code>
+			<code>},</code>
+			<code>created: function () {</code>
+			<code>// `this` points to the vm instance</code>
+			<code>console.log('a is: ' + this.a)</code>
+			<code>}</code>
+			<code>})</code>
+			<code>// => "a is: 1"</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Application as a tree of reusable self-contained components</h2>
+		<figure>
+			<img class="cover" src="pictures/components.png">
+		</figure>
+		<style>
+			#layers .cover{
+				width: 100%;
+			}
+		</style>
+	</section>
+
+	<section class="slide">
+		<h2>Single file component</h2>
+		<ul>
+			<li>Single file .vue where template, javascript and css are encapsulated</li>
+			<li>Build tool like webpack ar browserify is needed</li>
+			<li>vue-loader for and vuefy for browserify</li>
+			<li>Complete syntax highlighting</li>
+			<li>CommonJS modules</li>
+			<li>Component scoped</li>
+		</ul>
+		<p>Image</p>
+	</section>
+
+	<section class="slide">
+		<h2>Vue Router</h2>
+		<a href="https://github.com/vuejs/vue-router">LINK</a>
+		Nested route/view mapping
+		Modular, component-based router configuration
+		Route params, query, wildcards
+		View transition effects powered by Vue.js' transition system
+		Fine-grained navigation control
+		Links with automatic active CSS classes
+		HTML5 history mode or hash mode, with auto-fallback in IE9
+		Customizable Scroll Behavior
+	</section>
+
+	<section class="slide">
+		<h2>State management</h2>
+		<a href="https://github.com/vuejs/vuex">LINK</a>
+	</section>
+
+	<section class="slide">
+		<figure>
+			<img class="cover" src="pictures/vuex.png">
+		</figure>
+		<style>
+			#layers .cover{
+				width: 100%;
+			}
+		</style>
+	</section>
+
+	<section class="slide">
+		<h2>Server-Side Rendering</h2>
+		<a href="https://ssr.vuejs.org/en/">LINK</a>
+	</section>
+
+	<section class="slide">
+		<h2>Chrome devtools extension</h2>
+		<figure>
+			<img class="cover" src="pictures/dev-tools.png">
+		</figure>
+		<a href="https://github.com/vuejs/vue-devtools">LINK</a>
+	</section>
+
+	<section class="slide" id="lifecycle">
+		<figure>
+			<img class="cover" src="pictures/demo.gif">
+		</figure>
+		<style>
+			#layers .cover{
+				width: 100%;
+			}
+		</style>
+	</section>
+
+	<section class="slide">
+		<h2>Component and modules (add logos and links)</h2>
+		<a href="https://vuetifyjs.com/">Vuetify</a>
+		<a href="https://github.com/vuejs/awesome-vue">awesome-vue</a>
+		<a href="https://bootstrap-vue.js.org/">bootstrap-vue</a>
+	</section>
+
+	<section class="slide">
+		<h2>Questions</h2>
+	</section>
+
+	<section class="slide" id="lifecycle">
+		<h2>Architecture overview</h2>
+		<figure>
+			<img class="cover" src="pictures/hn-architecture.png">
+		</figure>
+		<style>
+			#layers .cover{
+				width: 100%;
+			}
+		</style>
+	</section>
+
+	<section class="slide">
+		<h2>Title</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur <a href="#4">adipisicing</a> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <em>quis nostrud</em> exercitation ullamco laboris <strong>nisi ut aliquip</strong> ex ea commodo consequat. Duis aute irure <i>dolor</i> in reprehenderit in voluptate velit esse cillum <b>dolore</b> eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in <code>&lt;culpa&gt;</code> qui officia deserunt mollit anim id est laborum.</p>
+	</section>
+
+	<section class="slide">
+		<h2>Title</h2>
 		<p>Lorem ipsum dolor sit amet, consectetur <a href="#4">adipisicing</a> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <em>quis nostrud</em> exercitation ullamco laboris <strong>nisi ut aliquip</strong> ex ea commodo consequat. Duis aute irure <i>dolor</i> in reprehenderit in voluptate velit esse cillum <b>dolore</b> eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in <code>&lt;culpa&gt;</code> qui officia deserunt mollit anim id est laborum.</p>
 	</section>
 
