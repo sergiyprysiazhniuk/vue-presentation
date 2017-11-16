@@ -357,15 +357,17 @@
 
 	<section class="slide">
 		<h2>Vue Router</h2>
-		<a href="https://github.com/vuejs/vue-router">LINK</a>
-		Nested route/view mapping
-		Modular, component-based router configuration
-		Route params, query, wildcards
-		View transition effects powered by Vue.js' transition system
-		Fine-grained navigation control
-		Links with automatic active CSS classes
-		HTML5 history mode or hash mode, with auto-fallback in IE9
-		Customizable Scroll Behavior
+		<ul>
+			<li>Nested route/view mapping</li>
+			<li>Modular, component-based router configuration</li>
+			<li>Route params, query, wildcards</li>
+			<li>Navigation Guards</li>
+			<li>View transition effects powered by Vue.js' transition system</li>
+			<li>Fine-grained navigation control</li>
+			<li>Links with automatic active CSS classes</li>
+			<li>HTML5 history mode or hash mode, with auto-fallback in IE9</li>
+			<li>Customizable Scroll Behavior</li>
+		</ul>
 	</section>
 
 	<section class="slide">
@@ -386,49 +388,157 @@
 
 	<section class="slide">
 		<h2>Server-Side Rendering</h2>
+		<p>Allows you to render your apps on the server,
+			then hydrate them with client side reactivity
+			after the page loads, greatly increasing the responsiveness
+			and improving the load time of your pages</p>
 		<a href="https://ssr.vuejs.org/en/">LINK</a>
 	</section>
 
+	<section class="slide grid" id="nuxt">
+		<h2>Nuxt.js</h2>
+		<p>Nuxt.js is a higher-level framework built on top of the Vue ecosystem which provides
+			 an extremely streamlined development experience for writing universal Vue
+			 applications</p>
+		<img src="pictures/nuxt.png">
+		<style>
+			#nuxt img{
+				position: absolute;
+				left: 50%;
+				top: 402px;
+				width: 50%;
+				transform: translateX(-50%);
+			}
+		</style>
+	</section>
+
+	<section class="slide" id="nuxt2">
+		<h2>Nuxt.js Features</h2>
+		<ul>
+			<li>Write Vue Files (*.vue)</li>
+			<li>Automatic Code Splitting</li>
+			<li>Server-Side Rendering</li>
+			<li>Powerful Routing System with Asynchronous Data</li>
+			<li>ES6/ES7 Transpilation</li>
+			<li>Hot module replacement in Development</li>
+			<li>Pre-processor: Sass, Less, Stylus, etc.</li>
+			<li>HTTP/2 push headers ready</li>
+			<li>Extending with Modular architecture</li>
+		</ul>
+	</section>
+
 	<section class="slide">
+		<h2>Architecture overview</h2>
+		<figure>
+			<img class="cover" src="pictures/hn-architecture.png">
+		</figure>
+	</section>
+
+	<section class="slide grid" id="cli">
+		<h2>Vue CLI</h2>
+		<img class="cover" src="pictures/vue-cli.jpg">
+		<style>
+			#cli .cover{
+				width: 81%;
+				top: 217px;
+				transform: translateX(-50%);
+			}
+		</style>
+	</section>
+
+	<section class="slide grid" id="dev-tool">
 		<h2>Chrome devtools extension</h2>
 		<figure>
 			<img class="cover" src="pictures/dev-tools.png">
 		</figure>
 		<a href="https://github.com/vuejs/vue-devtools">LINK</a>
+		<style>
+			#dev-tool .cover{
+				width: 60%;
+				transform: translateX(-50%);
+			}
+		</style>
 	</section>
 
-	<section class="slide" id="lifecycle">
+	<section class="slide" id="dev-tool-demo">
 		<figure>
 			<img class="cover" src="pictures/demo.gif">
 		</figure>
 		<style>
-			#layers .cover{
+			#dev-tool-demo .cover{
 				width: 100%;
 			}
 		</style>
 	</section>
 
-	<section class="slide">
-		<h2>Component and modules (add logos and links)</h2>
-		<a href="https://vuetifyjs.com/">Vuetify</a>
-		<a href="https://github.com/vuejs/awesome-vue">awesome-vue</a>
-		<a href="https://bootstrap-vue.js.org/">bootstrap-vue</a>
+	<section class="slide grid" id="comp-frameworks">
+		<h2>Component Frameworks</h2>
+		<img class="img1" src="pictures/vuteify.svg">
+		<img class="img2" src="pictures/vue-bootstrap.png">
+		<img class="img3" src="pictures/vue-material.png">
+		<a href="https://vuetifyjs.com/" class="a1">vuetifyjs.com</a>
+		<a href="https://vuematerial.io/" class="a2">vuematerial.io</a>
+		<a href="https://bootstrap-vue.js.org/" class="a3">bootstrap-vue.js.org</a>
+		<style>
+			#comp-frameworks img{
+				position: absolute;
+				left: 50%;
+				width: 200px;
+				transform: translateX(-50%);
+			}
+			#comp-frameworks .img1{
+				top: 23%;
+				left: 25%;
+			}
+			#comp-frameworks .img2{
+				top: 26%;
+				left: 75%;
+			}
+			#comp-frameworks .img3{
+				top: 61%;				
+			}
+			#comp-frameworks a{
+				position: absolute;
+				left: 50%;
+				transform: translate(-50%,-50%);			
+			}
+			#comp-frameworks .a1{
+				top: 56%;
+				left: 25%;
+			}
+			#comp-frameworks .a2{
+				top: 56%;
+				left: 75%;
+			}
+			#comp-frameworks .a3{
+				top: 81.5%;				
+			}
+		</style>
+	</section>
+
+	<section class="slide grid" id="awesome">
+		<figure>
+			<img class="cover" src="pictures/vue-awesome.png">
+		</figure>
+		<a href="https://github.com/vuejs/awesome-vue">github.com/vuejs/awesome-vue</a>		
+		<style>
+			#awesome .cover{
+				width: 70%;
+				top: 39%;
+			}
+			#awesome a{
+				position: absolute;
+				top: 609px;
+				left: 50%;
+				font-size: 40px;
+				transform: translate(-50%,-50%);
+				white-space: nowrap;
+			}
+		</style>
 	</section>
 
 	<section class="slide">
 		<h2>Questions</h2>
-	</section>
-
-	<section class="slide" id="lifecycle">
-		<h2>Architecture overview</h2>
-		<figure>
-			<img class="cover" src="pictures/hn-architecture.png">
-		</figure>
-		<style>
-			#layers .cover{
-				width: 100%;
-			}
-		</style>
 	</section>
 
 	<section class="slide">
