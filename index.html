@@ -5,10 +5,18 @@
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="node_modules/shower-material/styles/screen-4x3.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+	<!-- <link rel="stylesheet" href="node_modules/shower-material/styles/screen-4x3.css"> -->
+	<link rel="stylesheet" href="./theme3x4.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/agate.min.css">
+	<link rel="stylesheet" href="./agate.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
 	<script>hljs.initHighlightingOnLoad();</script>
+	
+	<style>
+		.slide pre code {
+			line-height: 1.5em;
+		}
+	</style>
 </head>
 <body class="shower list">
 
@@ -283,31 +291,22 @@
 		</style>
 	</section>
 
-	<section class="slide">
+	<section class="slide" id="what">
 		<h2>What is Vue.js</h2>
 		<ul>
-			<li class="next">Framework for building user interfaces</li>
-			<li class="next">Focused on the view layer</li>
-			<li class="next">MVVM</li>
-			<li class="next">Virtual DOM</li>
-			<li class="next">Reason 5</li>
+			<li class="">
+				Vue (pronounced /vjuː/, like <b>view</b>) is a <b>progressive</b> framework
+				for building user interfaces
+			</li><br/>
+			<li class="">
+				Unlike other monolithic frameworks, Vue is
+				designed from the ground up to be incrementally adoptable
+			</li><br/>
+			<li class="">
+				The core library is focused on the view layer only, and is easy to pick up
+				and integrate with other libraries or existing projects
+			</li>
 		</ul>
-	</section>
-
-	<section class="slide">
-		<h2>Why Vue.js?</h2>
-		<ul>
-			<li class="next">Fast</li>
-			<li class="next">Reason 2</li>
-			<li class="next">Reason 3</li>
-			<li class="next">Great documentation</li>
-			<li class="next">Low barrier of entry</li>
-		</ul>
-	</section>
-
-	<section class="slide">
-		<h2>Title</h2>
-		<p>Vue definition (Progressive framework and so on)</p>
 	</section>
 
 	<section class="slide" id="layers">
@@ -321,14 +320,34 @@
 		</style>
 	</section>
 
-	<section class="slide" id="reactivity">
-		<a href="https://vuejs.org/v2/guide/reactivity.html"></a>
-		<figure>
-			<img class="cover" src="pictures/data.png">
-		</figure>
+	<section class="slide grid" id="features">
+		<h2>Key Features</h2>
+		<ul>
+			<li class="">MVVM</li>
+			<li class="">Reactive</li>
+			<li class="">Virtual DOM</li>
+			<li class="">Component based</li>
+		</ul>
 		<style>
-			#layers .cover{
-				width: 100%;
+			#features li{
+				font-size: 32px;
+			}
+		</style>
+	</section>
+
+	<section class="slide grid" id="why">
+		<h2>Why Vue.js?</h2>
+		<ul>
+			<li class="">Fast</li>
+			<li class="">Adoptable</li>
+			<li class="">Scalable</li>
+			<li class="">Lightweight</li>
+			<li class="">Simple (low barrier of entry)</li>
+			<li class="">Great documentation</li>
+		</ul>
+		<style>
+			#why li{
+				font-size: 32px;
 			}
 		</style>
 	</section>
@@ -359,33 +378,120 @@
 		</style>
 	</section>
 
-	<section class="slide">
-		<h2>v-if, v-else examples</h2>
+	<section class="slide" id="reactivity">
+		<a href="https://vuejs.org/v2/guide/reactivity.html"></a>
+		<figure>
+			<img class="cover" src="pictures/data.png">
+		</figure>
+		<style>
+			#layers .cover{
+				width: 100%;
+			}
+		</style>
+	</section>
+
+	<section class="slide" id="conditional">
+		<h2>Conditional Rendering</h2>
+		<div class="box">
+			<pre>
+				<code>
+&lt;div id="app"&gt;
+	&lt;span v-if="condition1"&gt;Now you see me&lt;/span&gt;
+	&lt;span v-else-if="condition2"&gt;Or me&lt;/span&gt;
+	&lt;span v-else&gt;Otherwise me&lt;/span&gt;
+&lt;/div&gt;
+				</code>
+			</pre>
+			<pre class="javascript">
+				<code>
+var app = new Vue({
+  el: '#app',
+  data: {
+	condition1: true,
+	condition2: false
+  }
+})
+				</code>
+				
+			</pre>
+		</div>
+		
+		<style>
+			/* #conditional .box{ */
+				/* display: flex; */
+				/* justify-content: space-between; */
+			/* } */
+		</style>
 	</section>
 	
-	<section class="slide">
-		<h2>v-for example</h2>
+	<section class="slide" id="list">
+		<h2>List Rendering</h2>
+		<div class="box"></div>
+		<pre>
+			<code class="html">
+&lt;div id="app"&gt;				
+  &lt;ol&gt;
+    &lt;li v-for="todo in todos"&gt;
+	  {{ todo.text }}
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+			</code>
+		</pre>
+		<pre>
+			<code class="javascript">
+var app4 = new Vue({
+  el: '#app-4',
+  data: {
+	todos: [
+	{ text: 'Learn JavaScript' },
+	{ text: 'Learn Vue' },
+	{ text: 'Build something awesome' }
+	]
+  }
+})
+			</code>
+		</pre>
+	</div>
+		<style>
+			#list .box{
+				display: flex;
+				justify-content: space-between;
+			}
+		</style>
 	</section>
 
 	<section class="slide">
-		<h2>interpolation {{}}, v-once</h2>
+		<h2>Text Rendering</h2>
+		<pre>
+			<code class="html">
+&lt;span&gt;Message: {{ msg }}&lt;/span&gt;
+&lt;span v-once&gt;This will never change: {{ msg }}&lt;/span&gt;
+&lt;span v-html="rawHtml"&gt;&lt;/span&gt;
+			</code>
+		</pre>
 	</section>
 
 	<section class="slide">
-		<h2>raw html v-html</h2>
-
-		&lt;div v-html="rawHtml"&gt;&lt;/div&gt;
-	</section>
-
-	<section class="slide">
-		<h2>Dynamic attributes</h2>
-
-		&lt;div v-bind:id="dynamicId"&gt;&lt;/div&gt;
-		&lt;button v-bind:disabled="isButtonDisabled"&gt;Button&lt;/button&gt;
+		<h2>Dynamic Attributes</h2>
+		<pre>
+			<code>
+&lt;div v-bind:id="dynamicId"&gt;&lt;/div&gt;
+&lt;button v-bind:disabled="isButtonDisabled"&gt;Button&lt;/button&gt;
+			</code>
+		</pre>
 	</section>
 
 	<section class="slide">
 		<h2>Using JavaScript Expressions</h2>
+		<pre>
+			<code class="html">
+{{ number + 1 }}
+{{ ok ? 'YES' : 'NO' }}
+{{ message.split('').reverse().join('') }}
+&lt;div v-bind:id="'list-' + id"&gt;&lt;/div&gt;
+			</code>
+		</pre>
 		<a href="https://vuejs.org/v2/guide/syntax.html#Using-JavaScript-Expressions">LINK</a>
 	</section>
 
@@ -416,26 +522,138 @@
 
 	<section class="slide">
 		<h2>Computed Properties</h2>
+		<pre>
+			<code>
+&lt;div id="example"&gt;
+  &lt;p&gt;Original message: "{{ message }}"&lt;/p&gt;
+  &lt;p&gt;Computed reversed message: "{{ reversedMessage }}"&lt;/p&gt;
+&lt;/div&gt;
+			</code>
+		</pre>
+		<pre>
+			<code>
+var vm = new Vue({
+  el: '#example',
+  data: {
+    message: 'Hello'
+  },
+  computed: {
+    reversedMessage: function () {
+      return this.message.split('').reverse().join('')
+    }
+  }
+})
+			</code>
+		</pre>
 		<a href="https://vuejs.org/v2/guide/computed.html">LINK</a>
 	</section>
 
 	<section class="slide">
 		<h2>Watchers</h2>
+		<pre>
+			<code>
+var vm = new Vue({
+  el: '#demo',
+  data: {
+    firstName: 'Foo',
+    lastName: 'Bar',
+    fullName: 'Foo Bar'
+  },
+  watch: {
+    firstName: function (val) {
+      this.fullName = val + ' ' + this.lastName
+    },
+    lastName: function (val) {
+      this.fullName = this.firstName + ' ' + val
+    }
+  }
+})				
+			</code>
+		</pre>
 		<a href="https://vuejs.org/v2/guide/computed.html">LINK</a>
 	</section>
 
 	<section class="slide">
-		<h2>Class and Style Bindings</h2>
+		<h2>Class Bindings</h2>
+		<pre>
+			<code>
+&lt;div v-bind:class="{ active: isActive }"&gt;&lt;/div&gt;
+&lt;div class="static
+  v-bind:class="{ active: isActive, 'text-danger': hasError }"&gt;
+&lt;/div&gt;
+&lt;div v-bind:class="classObject"&gt;&lt;/div&gt;
+			</code>
+		</pre>
+		<a href="https://vuejs.org/v2/guide/class-and-style.html">LINK</a>
+	</section>
+
+	<section class="slide">
+		<h2>Style Bindings</h2>
+		<pre>
+			<code>
+&lt;div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }"&gt;&lt;/div&gt;
+&lt;div v-bind:style="styleObject"&gt;&lt;/div&gt;
+			</code>
+		</pre>
+		<pre>
+			<code>
+data: {
+  activeColor: 'red',
+  fontSize: 30
+}
+			</code>
+		</pre>
+		<pre>
+			<code>
+data: {
+  styleObject: {
+    color: 'red',
+    fontSize: '13px'
+  }
+}
+			</code>
+		</pre>
 		<a href="https://vuejs.org/v2/guide/class-and-style.html">LINK</a>
 	</section>
 
 	<section class="slide">
 		<h2>Event Handling</h2>
+		<pre>
+			<code>
+&lt;div id="example-2"&gt;
+  &lt;button v-on:click="greet">Greet&lt;/button&gt;
+  &lt;button @click="greet">Greet&lt;/button&gt;
+&lt;/div&gt;
+			</code>
+		</pre>
+		<pre>
+			<code>
+var example2 = new Vue({
+  el: '#example-2',
+  data: {
+    name: 'Vue.js'
+  },
+  methods: {
+    greet: function (event) {
+      alert('Hello ' + this.name + '!')
+    }
+  }
+})
+// you can invoke methods in JavaScript too
+example2.greet()
+			</code>
+		</pre>
 		<a href="https://vuejs.org/v2/guide/events.html">LINK</a>
 	</section>
 
 	<section class="slide">
 		<h2>Form Input Bindings</h2>
+		<pre>
+			<code>
+&lt;input v-model="message" placeholder="edit me"&gt;
+&lt;p>Message is: {{ message }}&gt;/p&gt;
+			</code>
+		</pre>
 		<a href="https://vuejs.org/v2/guide/forms.html">LINK</a>
 	</section>
 
