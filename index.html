@@ -57,7 +57,6 @@
 
 	<section class="slide grid" id="history">
 		<h2>History</h2>
-		
 		<table>
 			<tr>
 				<td rowspan="5" class="img">
@@ -108,21 +107,51 @@
 		</style>
 	</section>
 
-	<section class="slide">
-		<figure>
+	<section class="slide grid" id="quote">
+		<figure class="cover">
 			<blockquote>
-				<p>I figured, what if I could just extract the part that I really
-					liked about Angular and build something really lightweight without all the 
-					extra concepts involved?
+				<p>I figured, what if I could just extract the part that I really<br>
+					liked about Angular and build something really lightweight<br>
+					without all the extra concepts involved?
 				</p>
 			</blockquote>
 			<figcaption>Evan You</figcaption>
 		</figure>
+		<style>
+			#quote p{
+				font-size: 32px;
+    			white-space: nowrap;
+			}
+		</style>
 	</section>
 
-	<section class="slide">
-		<h2>Title</h2>
-		<p>GitHub stars and npm downloads</p>
+	<section class="slide grid" id="stars">
+		<h2>Popularity</h2>
+		<table>
+			<tr class="next">
+				<td>
+					<img src="pictures/github.png" alt="" width="260">
+				</td>
+				<td>
+					<img src="pictures/stars.png" alt="" width="260">
+				</td>
+			</tr>
+			<tr class="next">
+				<td><img src="pictures/npm.svg.png" alt="" width="260"></td>
+				<td><b>963 000</b> downloads<br> in the last month</td>
+			</tr>
+		</table>
+		<style>
+			#stars td{
+				background: none;
+				height: 200px;
+				vertical-align: middle;
+				font-size: 36px;
+			}
+			#stars img{
+				vertical-align: middle
+			}
+		</style>
 	</section>
 
 	<section class="slide">
