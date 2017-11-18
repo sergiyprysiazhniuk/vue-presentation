@@ -192,6 +192,43 @@
 		</style>
 	</section>
 
+	<section class="slide" id="speed">
+		<figure>
+			<img class="cover" src="pictures/ms.png">
+		</figure>
+		<style>
+			#speed .cover{
+				width: 100%;
+			}
+		</style>
+	</section>
+
+	<section class="slide" id="memory">
+		<figure>
+			<img class="cover" src="pictures/memory.png">
+		</figure>
+		<style>
+			#memory .cover{
+				width: 100%;
+			}
+		</style>
+	</section>
+
+	<section class="slide grid" id="benchmark">
+		<h2>Benchmark reference</h2>
+		<a href="https://github.com/krausest/js-framework-benchmark">github.com/krausest/js-framework-benchmark</a>		
+		<style>
+			#benchmark a{
+				position: absolute;
+				top: 300px;
+				left: 50%;
+				font-size: 40px;
+				transform: translate(-50%,-50%);
+				white-space: nowrap;
+			}
+		</style>
+	</section>
+
 	<section class="slide">
 		<h2>What is Vue.js</h2>
 		<ul>
@@ -242,23 +279,30 @@
 		</style>
 	</section>
 
-	<section class="slide">
+	<section class="slide" id="hello-world">
 		<h2>Hello World!</h2>
-		<pre class="html">
-			<code>&lt;div id="app"&gt;</code>
-			<code>  {{ message }}</code>
-			<code>&lt;/div&gt;</code>
-		</pre>
-		<pre class="javascript">
-			<code>
-				var app = new Vue({
-					el: '#app',
-					data: {
-						message: 'Hello Vue!'
-					}
-				})	
-			</code>
-		</pre>
+		<div class="box">
+			<pre class="html">
+				<code>&lt;div id="app"&gt;</code>
+				<code>  {{ message }}</code>
+				<code>&lt;/div&gt;</code>
+			</pre>
+			<pre class="javascript">
+				<code>var app = new Vue({</code>
+				<code>  el: '#app',</code>
+				<code>  data: {</code>
+				<code>    message: 'Hello Vue!'</code>
+				<code>  }</code>
+				<code>})</code>
+			</pre>
+		</div>
+		
+		<style>
+			#hello-world .box{
+				display: flex;
+				justify-content: space-between;
+			}
+		</style>
 	</section>
 
 	<section class="slide">
