@@ -234,12 +234,6 @@
 				<td>5.0.3</td>
 			</tr>
 			<tr>
-				<td>Bundle size min+gzip:</td>
-				<td>20 KB</td>
-				<td>43 KB</td>
-				<td>111 KB</td>
-			</tr>
-			<tr>
 				<td>Github stars:</td>
 				<td>74 107</td>
 				<td>81 413</td>
@@ -251,7 +245,20 @@
 				<td>1 130</td>
 				<td>539</td>
 			</tr>
+			<tr>
+				<td>Bundle size min+gzip:</td>
+				<td>20 KB</td>
+				<td>43 KB</td>
+				<td>111 KB</td>
+			</tr>
+			<tr>
+				<td>Performance* (slowdown):</td>
+				<td>1.33</td>
+				<td>1.26</td>
+				<td>1.33</td>
+			</tr>
 		</table>
+		<p class="footnote">*Based on 3rd party benchmark <a href="https://github.com/krausest/js-framework-benchmark">github.com/krausest/js-framework-benchmark</a></p>
 		<style>
 			#comparison td{
 				/* background: none; */
@@ -268,6 +275,9 @@
 			}
 			#comparison .angular{
 				width: 70px;
+			}
+			#comparison .footnote{
+				font-size: 20px;
 			}
 		</style>
 	</section>
@@ -294,21 +304,6 @@
 		</style>
 	</section>
 
-	<section class="slide grid" id="benchmark">
-		<h2>Benchmark reference</h2>
-		<a href="https://github.com/krausest/js-framework-benchmark">github.com/krausest/js-framework-benchmark</a>		
-		<style>
-			#benchmark a{
-				position: absolute;
-				top: 400px;
-				left: 50%;
-				font-size: 40px;
-				transform: translate(-50%,-50%);
-				white-space: nowrap;
-			}
-		</style>
-	</section>
-
 	<section class="slide" id="what">
 		<h2>What is Vue.js</h2>
 		<ul>
@@ -329,7 +324,7 @@
 
 	<section class="slide" id="layers">
 		<figure>
-			<img class="cover" src="pictures/layers.png">
+			<img class="cover" src="pictures/progressive.png">
 		</figure>
 		<style>
 			#layers .cover{
@@ -526,7 +521,7 @@ var app4 = new Vue({
 // Register a global custom directive called `v-focus`
 Vue.directive('focus', {
 	// When the bound element is inserted into the DOM...
-	inserted: function (el) {
+	inserted: function (el, binding) {
 		// Focus the element
 		el.focus()
 	}
@@ -539,11 +534,40 @@ Vue.directive('focus', {
 			</code>
 		</pre>
 		<style>
-			#list code{
+			#custom-directives code{
 				font-size: 22px;
 			}
 		</style>
 	</section>
+
+	<section class="slide" id="event-handling">
+			<h2>Event Handling</h2>
+			<pre>
+				<code>
+&lt;button v-on:click="greet">Greet&lt;/button&gt;
+&lt;button @click="greet">Greet&lt;/button&gt;
+				</code>
+			</pre>
+			<pre>
+				<code>
+var example = new Vue({
+	...
+	methods: {
+		greet: function (event) {
+			alert('Hello ' + this.name + '!')
+		}
+	}
+})
+// you can invoke methods in JavaScript too
+example.greet()
+				</code>
+			</pre>
+			<style>
+				#event-handling code{
+					font-size: 20px;	
+				}
+			</style>
+		</section>
 
 	<section class="slide" class="modifiers">
 		<h2>Modifiers</h2>
@@ -564,6 +588,20 @@ Vue.directive('focus', {
 				font-size: 22px;
 			}
 		</style>
+	</section>
+
+	<section class="slide">
+		<h2>Form Input Bindings</h2>
+		<pre>
+			<code>
+&lt;input v-model="message"&gt;
+&lt;p>Message is: {{ message }}&gt;/p&gt;
+
+&lt;input type="checkbox" v-model="checked"&gt;
+
+&lt;input v-model.number="age" type="number"&gt;
+			</code>
+		</pre>
 	</section>
 
 	<section class="slide" id="watchers">
@@ -688,71 +726,23 @@ data: {
 		</style>
 	</section>
 
-	<section class="slide" id="event-handling">
-		<h2>Event Handling</h2>
-		<pre>
-			<code>
-&lt;div id="example"&gt;
-  &lt;button v-on:click="greet">Greet&lt;/button&gt;
-  &lt;button @click="greet">Greet&lt;/button&gt;
-&lt;/div&gt;
-			</code>
-		</pre>
-		<pre>
-			<code>
-var example2 = new Vue({
-  el: '#example',
-  data: {
-    name: 'Vue.js'
-  },
-  methods: {
-    greet: function (event) {
-      alert('Hello ' + this.name + '!')
-    }
-  }
-})
-// you can invoke methods in JavaScript too
-example2.greet()
-			</code>
-		</pre>
-		<style>
-			#event-handling code{
-				font-size: 16px;	
-			}
-		</style>
-	</section>
-
 	<section class="slide">
-		<h2>Form Input Bindings</h2>
-		<pre>
-			<code>
-&lt;input v-model="message"&gt;
-&lt;p>Message is: {{ message }}&gt;/p&gt;
-
-&lt;input type="checkbox" id="checkbox" v-model="checked"&gt;
-
-&lt;input v-model.number="age" type="number"&gt;
-			</code>
-		</pre>
-	</section>
-
-	<section class="slide">
-		<h2>Components</h2>
-		<pre>
-			<code>
+			<h2>Components</h2>
+			<pre>
+				<code>
 &lt;div id="example"&gt;
 	&lt;my-component&gt;&lt;/my-component&gt;
 &lt;/div&gt;
-			</code>
-		</pre>
-		<pre>
-			<code>
+				</code>
+			</pre>
+			<pre>
+				<code>
 Vue.component('my-component', {
 	template: '&lt;div&gt;A custom component!&lt;/div&gt;'
 })
-			</code>
-		</pre>
-	</section>
+				</code>
+			</pre>
+		</section>
 
 	<section class="slide">
 		<h2>Local Registration</h2>
@@ -920,7 +910,6 @@ Vue.filter('upperCase', function (value) {
 {{ message | filterA | filterB('arg1', arg2) }}
 			</code>
 		</pre>
-		<a href="https://vuejs.org/v2/guide/filters.html">LINK</a>
 	</section>
 
 	<section class="slide grid" id="mixins">
@@ -966,13 +955,9 @@ var component = new Component() // => "hello from mixin!"
 		<pre>
 			<code class="js">
 MyPlugin.install = function (Vue, options) {
-  // 1. add global method or property
   Vue.myGlobalMethod = function () {...}
-  // 2. add a global asset
   Vue.directive('my-directive', {...})
-  // 3. inject some component options
   Vue.mixin(...)
-  // 4. add an instance method
   Vue.prototype.$myMethod = function (methodOptions) {...}
 }
 
@@ -1020,13 +1005,13 @@ Vue.use(MyPlugin, { someOption: true })
 	<section class="slide grid" id="vuex">
 		<h2>State management with Vuex</h2>
 		<ul>
-			<li>Vuex is a <b>state management pattern + library</b> for Vue.js applications</li>
-			<li>It serves as a centralized store for all the components in an application</li>
-			<li>
+			<li class="next">Vuex is a <b>state management pattern + library</b> for Vue.js applications</li>
+			<li class="next">It serves as a centralized store for all the components in an application</li>
+			<li class="next">
 				Inspired by <b>Flux</b>, <b>Redux</b> and <b>The Elm Architecture</b>
 				<img src="pictures/flow.png" alt="">
 			</li>
-			<li>Tailored specifically for Vue.js to take advantage of its reactivity system</li>
+			<li class="next">Tailored specifically for Vue.js to take advantage of its reactivity system</li>
 		</ul>
 		<style>
 			#vuex img{
