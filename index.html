@@ -5,8 +5,8 @@
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="node_modules/shower-material/styles/screen-4x3.css">
-	<!-- <link rel="stylesheet" href="./theme3x4.css"> -->
+	<!-- <link rel="stylesheet" href="node_modules/shower-material/styles/screen-4x3.css"> -->
+	<link rel="stylesheet" href="./theme3x4.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/agate.min.css">
 	<link rel="stylesheet" href="./agate.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
@@ -16,6 +16,19 @@
 		.slide pre code {
 			line-height: 1.5em;
 		}
+		.slide pre code {
+			display: block;
+			padding: 0 30px;
+			border-radius: 10px;
+			white-space: pre;
+			-moz-tab-size: 2;
+			-o-tab-size: 2;
+			tab-size: 2;
+			margin: 0;
+			margin-left: 0;
+			width: auto;
+			overflow: visible;
+	}
 	</style>
 </head>
 <body class="shower list">
@@ -56,11 +69,16 @@
 		</ul>
 	</section>
 
-	<section class="slide">
+	<section class="slide" id="dejavu">
 		<h2>Deja Vu<span style="opacity: 0.3">e</span>?</h2>
 		<figure>
 			<img class="cover" src="pictures/dejavu.jpg">
 		</figure>
+		<style>
+			#dejavu .cover{
+				top: 56%;
+			}
+		</style>
 	</section>
 
 	<section class="slide grid" id="history">
@@ -222,7 +240,7 @@
 				<td>111 KB</td>
 			</tr>
 			<tr>
-				<td>Guthub stars:</td>
+				<td>Github stars:</td>
 				<td>74 107</td>
 				<td>81 413</td>
 				<td>30 184</td>
@@ -282,7 +300,7 @@
 		<style>
 			#benchmark a{
 				position: absolute;
-				top: 300px;
+				top: 400px;
 				left: 50%;
 				font-size: 40px;
 				transform: translate(-50%,-50%);
@@ -294,15 +312,15 @@
 	<section class="slide" id="what">
 		<h2>What is Vue.js</h2>
 		<ul>
-			<li class="">
+			<li class="next">
 				Vue (pronounced /vjuː/, like <b>view</b>) is a <b>progressive</b> framework
 				for building user interfaces
 			</li><br/>
-			<li class="">
+			<li class="next">
 				Unlike other monolithic frameworks, Vue is
 				designed from the ground up to be incrementally adoptable
 			</li><br/>
-			<li class="">
+			<li class="next">
 				The core library is focused on the view layer only, and is easy to pick up
 				and integrate with other libraries or existing projects
 			</li>
@@ -323,10 +341,10 @@
 	<section class="slide grid" id="features">
 		<h2>Key Features</h2>
 		<ul>
-			<li class="">MVVM</li>
-			<li class="">Reactive</li>
-			<li class="">Virtual DOM</li>
-			<li class="">Component based</li>
+			<li class="next">MVVM</li>
+			<li class="next">Reactive</li>
+			<li class="next">Virtual DOM</li>
+			<li class="next">Component based</li>
 		</ul>
 		<style>
 			#features li{
@@ -338,12 +356,12 @@
 	<section class="slide grid" id="why">
 		<h2>Why Vue.js?</h2>
 		<ul>
-			<li class="">Fast</li>
-			<li class="">Adoptable</li>
-			<li class="">Scalable</li>
-			<li class="">Lightweight</li>
-			<li class="">Simple (low barrier of entry)</li>
-			<li class="">Great documentation</li>
+			<li class="next">Fast</li>
+			<li class="next">Adoptable</li>
+			<li class="next">Scalable</li>
+			<li class="next">Lightweight</li>
+			<li class="next">Simple (low barrier of entry)</li>
+			<li class="next">Great documentation</li>
 		</ul>
 		<style>
 			#why li{
@@ -356,17 +374,22 @@
 		<h2>Hello World!</h2>
 		<div class="box">
 			<pre class="html">
-				<code>&lt;div id="app"&gt;</code>
-				<code>  {{ message }}</code>
-				<code>&lt;/div&gt;</code>
+				<code>
+&lt;div id="app"&gt;
+  {{ message }}
+&lt;/div&gt;
+				</code>
+
 			</pre>
 			<pre class="javascript">
-				<code>var app = new Vue({</code>
-				<code>  el: '#app',</code>
-				<code>  data: {</code>
-				<code>    message: 'Hello Vue!'</code>
-				<code>  }</code>
-				<code>})</code>
+				<code>
+var app = new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello Vue!'
+  }
+})
+				</code>
 			</pre>
 		</div>
 		
@@ -390,6 +413,39 @@
 		</style>
 	</section>
 
+	<section class="slide">
+			<h2>Text Rendering</h2>
+			<pre>
+				<code class="html">
+&lt;span&gt;Message: {{ msg }}&lt;/span&gt;
+&lt;span v-once&gt;This will never change: {{ msg }}&lt;/span&gt;
+&lt;span v-html="rawHtml"&gt;&lt;/span&gt;
+				</code>
+			</pre>
+		</section>
+
+		<section class="slide">
+			<h2>Dynamic Attributes</h2>
+			<pre>
+				<code class="html">
+&lt;div v-bind:id="dynamicId"&gt;&lt;/div&gt;
+&lt;button :disabled="isButtonDisabled"&gt;Button&lt;/button&gt;
+				</code>
+			</pre>
+		</section>
+	
+		<section class="slide">
+			<h2>Using JavaScript Expressions</h2>
+			<pre>
+				<code class="html">
+{{ number + 1 }}
+{{ ok ? 'YES' : 'NO' }}
+{{ message.split('').reverse().join('') }}
+&lt;div v-bind:id="'list-' + id"&gt;&lt;/div&gt;
+				</code>
+			</pre>
+		</section>
+
 	<section class="slide" id="conditional">
 		<h2>Conditional Rendering</h2>
 		<div class="box">
@@ -397,19 +453,19 @@
 				<code>
 &lt;div id="app"&gt;
 	&lt;span v-if="condition1"&gt;Now you see me&lt;/span&gt;
-	&lt;span v-else-if="condition2"&gt;Or me&lt;/span&gt;
-	&lt;span v-else&gt;Otherwise me&lt;/span&gt;
+	<span class="next">&lt;span v-else-if="condition2"&gt;Or me&lt;/span&gt;</span>
+	<span class="next">&lt;span v-else&gt;Otherwise me&lt;/span&gt;</span>
 &lt;/div&gt;
 				</code>
 			</pre>
 			<pre class="javascript">
 				<code>
 var app = new Vue({
-  el: '#app',
-  data: {
-	condition1: true,
-	condition2: false
-  }
+	el: '#app',
+	data: {
+		condition1: true,
+		condition2: false
+	}
 })
 				</code>
 				
@@ -417,10 +473,9 @@ var app = new Vue({
 		</div>
 		
 		<style>
-			/* #conditional .box{ */
-				/* display: flex; */
-				/* justify-content: space-between; */
-			/* } */
+			#conditional code{
+				font-size: 22px;
+			}
 		</style>
 	</section>
 	
@@ -430,30 +485,33 @@ var app = new Vue({
 		<pre>
 			<code class="html">
 &lt;div id="app"&gt;				
-  &lt;ol&gt;
-    &lt;li v-for="todo in todos"&gt;
-	  {{ todo.text }}
-    &lt;/li&gt;
-  &lt;/ol&gt;
+	&lt;ol&gt;
+		&lt;li v-for="todo in todos"&gt;
+			{{ todo.text }}
+		&lt;/li&gt;
+	&lt;/ol&gt;
 &lt;/div&gt;
 			</code>
 		</pre>
 		<pre>
 			<code class="javascript">
 var app4 = new Vue({
-  el: '#app-4',
-  data: {
-	todos: [
-	{ text: 'Learn JavaScript' },
-	{ text: 'Learn Vue' },
-	{ text: 'Build something awesome' }
-	]
-  }
+	el: '#app-4',
+	data: {
+		todos: [
+			{ text: 'Learn JavaScript' },
+			{ text: 'Learn Vue' },
+			{ text: 'Build something awesome' }
+		]
+	}
 })
 			</code>
 		</pre>
 	</div>
 		<style>
+			#list code{
+				font-size: 16px;
+			}
 			#list .box{
 				display: flex;
 				justify-content: space-between;
@@ -461,56 +519,38 @@ var app4 = new Vue({
 		</style>
 	</section>
 
-	<section class="slide">
-		<h2>Text Rendering</h2>
+	<section class="slide" id="custom-directives">
+		<h2>Custom Directives</h2>
+		<pre>
+			<code class="js">
+// Register a global custom directive called `v-focus`
+Vue.directive('focus', {
+	// When the bound element is inserted into the DOM...
+	inserted: function (el) {
+		// Focus the element
+		el.focus()
+	}
+})
+			</code>
+		</pre>
 		<pre>
 			<code class="html">
-&lt;span&gt;Message: {{ msg }}&lt;/span&gt;
-&lt;span v-once&gt;This will never change: {{ msg }}&lt;/span&gt;
-&lt;span v-html="rawHtml"&gt;&lt;/span&gt;
+&ltinput v-focus&gt
 			</code>
 		</pre>
+		<style>
+			#list code{
+				font-size: 22px;
+			}
+		</style>
 	</section>
 
-	<section class="slide">
-		<h2>Dynamic Attributes</h2>
-		<pre>
-			<code>
-&lt;div v-bind:id="dynamicId"&gt;&lt;/div&gt;
-&lt;button v-bind:disabled="isButtonDisabled"&gt;Button&lt;/button&gt;
-			</code>
-		</pre>
-	</section>
-
-	<section class="slide">
-		<h2>Using JavaScript Expressions</h2>
-		<pre>
-			<code class="html">
-{{ number + 1 }}
-{{ ok ? 'YES' : 'NO' }}
-{{ message.split('').reverse().join('') }}
-&lt;div v-bind:id="'list-' + id"&gt;&lt;/div&gt;
-			</code>
-		</pre>
-		<a href="https://vuejs.org/v2/guide/syntax.html#Using-JavaScript-Expressions">LINK</a>
-	</section>
-
-	<section class="slide">
-		<h2>Directives</h2>
-		<a href="https://vuejs.org/v2/guide/syntax.html#Directives">LINK</a>
-	</section>
-
-	<section class="slide">
-		<h2>Arguments</h2>
-		<a href="https://vuejs.org/v2/guide/syntax.html#Arguments">LINK</a>
-	</section>
-
-	<section class="slide">
+	<section class="slide" class="modifiers">
 		<h2>Modifiers</h2>
 		<pre>
 			<code class="html">
 &lt;form v-on:submit.prevent="onSubmit"&gt; ... &lt;/form&gt;
-&lt;div v-on:click.once.stop="doSomething"&gt;Do something&lt;/div&gt;
+&lt;div v-on:click.once.stop="doSmth"&gt;Do something&lt;/div&gt;
 
 &lt;!-- Alt + C --&gt;
 &lt;input v-on:keyup.alt.67="clear"&gt;
@@ -519,48 +559,14 @@ var app4 = new Vue({
 &lt;div v-on:click.ctrl="doSomething"&gt;Do something&lt;/div&gt;
 			</code>
 		</pre>
-		<a href="https://vuejs.org/v2/guide/syntax.html#Modifiers">LINK</a>
+		<style>
+			#modifiers code{
+				font-size: 22px;
+			}
+		</style>
 	</section>
 
-	<section class="slide">
-		<h2>Shorthands</h2>
-		<a href="https://vuejs.org/v2/guide/syntax.html#Shorthands">LINK</a>
-	</section>
-
-	<section class="slide">
-		<h2>Other directives</h2>
-		<p>List of directives</p>
-	</section>
-
-	<section class="slide">
-		<h2>Computed Properties</h2>
-		<pre>
-			<code>
-&lt;div id="example"&gt;
-  &lt;p&gt;Original message: "{{ message }}"&lt;/p&gt;
-  &lt;p&gt;Computed reversed message: "{{ reversedMessage }}"&lt;/p&gt;
-&lt;/div&gt;
-			</code>
-		</pre>
-		<pre>
-			<code>
-var vm = new Vue({
-  el: '#example',
-  data: {
-    message: 'Hello'
-  },
-  computed: {
-    reversedMessage: function () {
-      return this.message.split('').reverse().join('')
-    }
-  }
-})
-			</code>
-		</pre>
-		<a href="https://vuejs.org/v2/guide/computed.html">LINK</a>
-	</section>
-
-	<section class="slide">
+	<section class="slide" id="watchers">
 		<h2>Watchers</h2>
 		<pre>
 			<code>
@@ -582,29 +588,79 @@ var vm = new Vue({
 })				
 			</code>
 		</pre>
-		<a href="https://vuejs.org/v2/guide/computed.html">LINK</a>
+		<style>
+			#watchers code {
+				font-size: 18px;
+			}
+		</style>
 	</section>
 
-	<section class="slide">
+	<section class="slide" id="computed">
+			<h2>Computed Properties</h2>
+			<pre>
+				<code>
+&lt;div id="example"&gt;
+	&lt;p&gt;Full name: "{{ fullName }}"&lt;/p&gt;
+&lt;/div&gt;
+				</code>
+			</pre>
+			<pre>
+				<code>
+var vm = new Vue({
+	el: '#demo',
+	data: {
+		firstName: 'Foo',
+		lastName: 'Bar'
+	},
+	computed: {
+		fullName: function () {
+			return firstName + ' ' + this.lastName
+		}
+	}
+})	
+				</code>
+			</pre>
+			<style>
+				#computed code{
+					font-size: 18px;
+				}
+			</style>
+		</section>
+
+	<section class="slide" id="class-bindings">
 		<h2>Class Bindings</h2>
 		<pre>
-			<code>
-&lt;div v-bind:class="{ active: isActive }"&gt;&lt;/div&gt;
+			<code class="html">
+&lt;div :class="{ active: isActive }"&gt;&lt;/div&gt;
 &lt;div class="static
-  v-bind:class="{ active: isActive, 'text-danger': hasError }"&gt;
+  :class="{ active: isActive, 'text-danger': hasError }"&gt;
 &lt;/div&gt;
-&lt;div v-bind:class="classObject"&gt;&lt;/div&gt;
+&lt;div :class="classObject"&gt;&lt;/div&gt;
 			</code>
 		</pre>
-		<a href="https://vuejs.org/v2/guide/class-and-style.html">LINK</a>
+		<pre>
+			<code class="js">
+data: {
+	classObject: {
+		active: true,
+		'text-danger': false
+	}
+}
+			</code>
+		</pre>
+		<style>
+			#class-bindings code{
+				font-size: 22px;
+			}
+		</style>
 	</section>
 
-	<section class="slide">
+	<section class="slide" id="style-bindings">
 		<h2>Style Bindings</h2>
 		<pre>
-			<code>
-&lt;div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }"&gt;&lt;/div&gt;
-&lt;div v-bind:style="styleObject"&gt;&lt;/div&gt;
+			<code class="html">
+&lt;div :style="{ color: activeColor, fontSize: fontSize + 'px' }"&gt;&lt;/div&gt;
+&lt;div :style="styleObject"&gt;&lt;/div&gt;
 			</code>
 		</pre>
 		<pre>
@@ -625,14 +681,18 @@ data: {
 }
 			</code>
 		</pre>
-		<a href="https://vuejs.org/v2/guide/class-and-style.html">LINK</a>
+		<style>
+#style-bindings code{
+	font-size: 18px;
+}
+		</style>
 	</section>
 
-	<section class="slide">
+	<section class="slide" id="event-handling">
 		<h2>Event Handling</h2>
 		<pre>
 			<code>
-&lt;div id="example-2"&gt;
+&lt;div id="example"&gt;
   &lt;button v-on:click="greet">Greet&lt;/button&gt;
   &lt;button @click="greet">Greet&lt;/button&gt;
 &lt;/div&gt;
@@ -641,7 +701,7 @@ data: {
 		<pre>
 			<code>
 var example2 = new Vue({
-  el: '#example-2',
+  el: '#example',
   data: {
     name: 'Vue.js'
   },
@@ -655,18 +715,25 @@ var example2 = new Vue({
 example2.greet()
 			</code>
 		</pre>
-		<a href="https://vuejs.org/v2/guide/events.html">LINK</a>
+		<style>
+			#event-handling code{
+				font-size: 16px;	
+			}
+		</style>
 	</section>
 
 	<section class="slide">
 		<h2>Form Input Bindings</h2>
 		<pre>
 			<code>
-&lt;input v-model="message" placeholder="edit me"&gt;
+&lt;input v-model="message"&gt;
 &lt;p>Message is: {{ message }}&gt;/p&gt;
+
+&lt;input type="checkbox" id="checkbox" v-model="checked"&gt;
+
+&lt;input v-model.number="age" type="number"&gt;
 			</code>
 		</pre>
-		<a href="https://vuejs.org/v2/guide/forms.html">LINK</a>
 	</section>
 
 	<section class="slide">
@@ -674,18 +741,17 @@ example2.greet()
 		<pre>
 			<code>
 &lt;div id="example"&gt;
-&lt;my-component&gt;&lt;/my-component&gt;
+	&lt;my-component&gt;&lt;/my-component&gt;
 &lt;/div&gt;
 			</code>
 		</pre>
 		<pre>
 			<code>
 Vue.component('my-component', {
-  template: '&lt;div&gt;A custom component!&lt;/div&gt;'
+	template: '&lt;div&gt;A custom component!&lt;/div&gt;'
 })
 			</code>
 		</pre>
-		<a href="https://vuejs.org/v2/guide/components.html">LINK</a>
 	</section>
 
 	<section class="slide">
@@ -693,193 +759,16 @@ Vue.component('my-component', {
 		<pre>
 			<code class="javascript">
 var Child = {
-  template: '&lt;div&gt;A custom component!&lt;/div&gt;'
+	template: '&lt;div&gt;A custom component!&lt;/div&gt;'
 }
 
 new Vue({
   components: {
-    // my-component will only be available in parent's template
     'my-component': Child
   }
 })
 			</code>
 		</pre>
-		<a href="https://vuejs.org/v2/guide/components.html">LINK</a>
-	</section>
-
-	<section class="slide grid" id="composing">
-		<h2>Composing Components</h2>
-		<figure>
-			<img class="cover" src="pictures/props-events.png">
-		</figure>
-		<style>
-			#composing .cover{
-				width: 52%;
-    			top: 56%;
-			}
-		</style>
-		<a href="https://vuejs.org/v2/guide/components.html#Composing-Components">LINK</a>
-	</section>
-
-	<section class="slide">
-		<h2>One-Way Data Flow</h2>
-		<pre>
-			<code class="js">
-Vue.component('child', {
-  // camelCase in JavaScript
-  props: ['myMessage'],
-  template: '&lt;span&gt;{{ myMessage }}&lt;/span&gt;'
-})
-			</code>
-		</pre>
-		<pre>
-			<code>
-props: {
-  propA: Boolean,
-  propB: [String, Number],
-  propC: {
-    type: Number,
-    required: true,
-    default: 100,
-    validator: function (value) {
-      return value > 10
-    }
-  }
-}
-			</code>
-		</pre>
-		<a href="https://vuejs.org/v2/guide/components.html#One-Way-Data-Flow">LINK</a>
-	</section>
-
-	<section class="slide">
-		<h2>Custom Events</h2>
-		<pre>
-			<code>
-&lt;div id="counter-event-example"&gt;
-  &lt;p&gt;{{ total }}&lt;/p&gt;
-  &lt;button-counter v-on:increment="incrementTotal"&gt;&lt;/button-counter&gt;
-&lt;/div&gt;
-			</code>
-		</pre>
-		<pre>
-			<code>
-Vue.component('button-counter', {
-  template: '&lt;button v-on:click="incrementCounter"&gt;{{ counter }}&lt;/button&gt;',
-  methods: {
-    incrementCounter: function () {
-      this.$emit('increment')
-    }
-  }
-})
-			</code>
-		</pre>
-		<a href="https://vuejs.org/v2/guide/components.html#Custom-Events">LINK</a>
-	</section>
-
-	<section class="slide">
-		<h2>Content Distribution with Slots</h2>
-		<a href="https://vuejs.org/v2/guide/components.html#Content-Distribution-with-Slots">LINK</a>
-	</section>
-
-	<section class="slide">
-		<h2>Dynamic Components</h2>
-		<a href="https://vuejs.org/v2/guide/components.html#Dynamic-Components">LINK</a>
-	</section>
-
-	<section class="slide">
-		<h2>Async-Components</h2>
-		<a href="https://vuejs.org/v2/guide/components.html#Async-Components">LINK</a>
-	</section>
-
-	<section class="slide">
-		<h2>Filters</h2>
-		<pre>
-			<code class="html">
-{{ message | upperCase }}
-&lt;div v-bind:id="rawId | formatId"&gt;&lt;/div&gt;
-			</code>
-		</pre>
-		<pre>
-			<code class="js">
-Vue.filter('upperCase', function (value) {
-  if (!value) return ''
-  return value.toUpperCase()
-})
-			</code>
-		</pre>
-		<pre>
-			<code class="html">
-{{ message | filterA | filterB('arg1', arg2) }}
-			</code>
-		</pre>
-		<a href="https://vuejs.org/v2/guide/filters.html">LINK</a>
-	</section>
-
-	<section class="slide grid">
-		<h2>Mixins</h2>
-		<p>Flexible way to distribute reusable functionalities for Vue components</p>
-		<pre>
-			<code class="js">
-
-// define a mixin object
-var myMixin = {
-  created: function () {
-    console.log('hello from mixin!')
-  }
-}
-// define a component that uses this mixin
-var Component = Vue.extend({
-  mixins: [myMixin]
-})
-var component = new Component() // => "hello from mixin!"
-			</code>
-		</pre>
-		<a href="https://vuejs.org/v2/guide/mixins.html">LINK</a>
-	</section>
-	
-	<section class="slide">
-		<h2>Plugins</h2>
-		<p>Plugins usually add global-level functionality to Vue</p>
-		<ol>
-			<li>Add some global methods or properties</li>
-			<li>Add one or more global assets: directives/filters/transitions etc</li>
-			<li>Add some component options by global mixin</li>
-			<li>Add some Vue instance methods by attaching them to Vue.prototype.</li>
-			<li>A library that provides an API of its own, while at the same time injecting some combination of the above</li>
-		</ol>
-		<a href="https://vuejs.org/v2/guide/plugins.html">LINK</a>
-	</section>
-
-	<section class="slide">
-		<h2>Plugin example</h2>
-		<pre>
-			<code class="js">
-MyPlugin.install = function (Vue, options) {
-  // 1. add global method or property
-  Vue.myGlobalMethod = function () {...}
-  // 2. add a global asset
-  Vue.directive('my-directive', {...})
-  // 3. inject some component options
-  Vue.mixin(...)
-  // 4. add an instance method
-  Vue.prototype.$myMethod = function (methodOptions) {...}
-}
-
-// calls `MyPlugin.install(Vue)`
-Vue.use(MyPlugin, { someOption: true })
-			</code>
-		</pre>
-		<a href="https://vuejs.org/v2/guide/render-function.html">LINK</a>
-	</section>
-
-	<section class="slide">
-		<h2>Render Functions & JSX</h2>
-		<a href="https://vuejs.org/v2/guide/render-function.html">LINK</a>
-	</section>
-
-	<section class="slide">
-		<h2>TypeScript Support</h2>
-		<a href="https://vuejs.org/v2/guide/typescript.html">LINK</a>
 	</section>
 
 	<section class="slide" id="lifecycle">
@@ -891,6 +780,24 @@ Vue.use(MyPlugin, { someOption: true })
 				width: 100%;
 			}
 		</style>
+	</section>
+
+	<section class="slide" id="lifecycle-example">
+		<h2>Lifecycle Hooks</h2>
+		<pre>
+			<code class="js">
+Vue.component('my-component', {
+	template: '&lt;div&gt;A custom component!&lt;/div&gt;',
+	data: {
+		a: 1
+	},
+	created: function () {
+		// `this` points to the component instance
+		console.log('a is: ' + this.a)
+	}
+})
+			</code>
+		</pre>
 	</section>
 
 	<section class="slide">
@@ -910,11 +817,177 @@ Vue.use(MyPlugin, { someOption: true })
 			<img class="cover" src="pictures/vue-component-1.png">
 		</figure>
 		<style>
-			/* #vue-component .cover{ */
-				/* width: 100%; */
-			/* } */
 		</style>
 	</section>
+
+	<section class="slide grid" id="composing">
+		<h2>Composing Components</h2>
+		<figure>
+			<img class="cover" src="pictures/props-events.png">
+		</figure>
+		<style>
+			#composing .cover{
+				width: 52%;
+    			top: 56%;
+			}
+		</style>
+	</section>
+
+	<section class="slide" id="props1">
+		<h2>Props</h2>
+		<pre>
+			<code class="html">
+&lt;child my-message="hello!"&gt;&lt;/child&gt;
+			</code>
+		</pre>
+		<pre>
+			<code class="js">
+Vue.component('child', {
+	// camelCase in JavaScript
+	props: ['myMessage'],
+	template: '&lt;span&gt;{{ myMessage }}&lt;/span&gt;'
+})
+			</code>
+		</pre>
+	</section>
+
+	<section class="slide" id="props2">
+			<h2>Props</h2>
+			<pre>
+				<code>
+props: {
+	propA: Boolean,
+	propB: [String, Number],
+	propC: {
+		type: Number,
+		required: true,
+		default: 100,
+		validator: function (value) {
+			return value > 10
+		}
+	}
+}
+				</code>
+			</pre>
+		</section>
+
+	<section class="slide" id="custom-events">
+		<h2>Custom Events</h2>
+		<pre>
+			<code class="html">
+&lt;div id="counter-event-example"&gt;
+	&lt;p&gt;{{ total }}&lt;/p&gt;
+	&lt;button-counter @increment="incrementTotal"&gt;&lt;/button-counter&gt;
+&lt;/div&gt;
+			</code>
+		</pre>
+		<pre>
+			<code class="js">
+Vue.component('button-counter', {
+  template: '&lt;button @click="incrementCounter"&gt;{{ counter }}&lt;/button&gt;',
+  methods: {
+    incrementCounter: function () {
+      this.$emit('increment')
+    }
+  }
+})
+			</code>
+		</pre>
+		<style>
+			#custom-events code{
+				font-size: 18px;
+			}
+		</style>
+	</section>
+
+	<section class="slide">
+		<h2>Filters</h2>
+		<pre>
+			<code class="html">
+{{ message | upperCase }}
+&lt;div v-bind:id="rawId | formatId"&gt;&lt;/div&gt;
+			</code>
+		</pre>
+		<pre>
+			<code class="js">
+Vue.filter('upperCase', function (value) {
+  return value.toUpperCase()
+})
+			</code>
+		</pre>
+		<pre>
+			<code class="html">
+{{ message | filterA | filterB('arg1', arg2) }}
+			</code>
+		</pre>
+		<a href="https://vuejs.org/v2/guide/filters.html">LINK</a>
+	</section>
+
+	<section class="slide grid" id="mixins">
+		<h2>Mixins</h2>
+		<p>Flexible way to distribute reusable functionalities for Vue components</p>
+		<pre>
+			<code class="js">
+
+// define a mixin object
+var myMixin = {
+  created: function () {
+    console.log('hello from mixin!')
+  }
+}
+// define a component that uses this mixin
+var Component = Vue.extend({
+  mixins: [myMixin]
+})
+var component = new Component() // => "hello from mixin!"
+			</code>
+		</pre>
+		<style>
+			#mixins code{
+				font-size: 18px; 
+			}
+		</style>
+	</section>
+	
+	<section class="slide">
+		<h2>Plugins</h2>
+		<p>Plugins usually add global-level functionality to Vue</p>
+		<ol>
+			<li class="next">Add some global methods or properties</li>
+			<li class="next">Add one or more global assets: directives/filters/transitions etc</li>
+			<li class="next">Add some component options by global mixin</li>
+			<li class="next">Add some Vue instance methods by attaching them to Vue.prototype</li>
+			<li class="next">A library that provides an API of its own, while at the same time injecting some combination of the above</li>
+		</ol>
+	</section>
+
+	<section class="slide" id="plugin">
+		<h2>Plugin example</h2>
+		<pre>
+			<code class="js">
+MyPlugin.install = function (Vue, options) {
+  // 1. add global method or property
+  Vue.myGlobalMethod = function () {...}
+  // 2. add a global asset
+  Vue.directive('my-directive', {...})
+  // 3. inject some component options
+  Vue.mixin(...)
+  // 4. add an instance method
+  Vue.prototype.$myMethod = function (methodOptions) {...}
+}
+
+// calls `MyPlugin.install(Vue)`
+Vue.use(MyPlugin, { someOption: true })
+			</code>
+		</pre>
+		<style>
+			#plugin code{
+				font-size: 20px; 
+			}
+		</style>
+	</section>
+
+	
 
 	<!-- <section class="slide">
 		<h2>Single file component</h2>
@@ -962,24 +1035,23 @@ Vue.use(MyPlugin, { someOption: true })
 		</style>
 	</section>
 
-	<section class="slide">
+	<section class="slide" id="vuex2">
 		<figure>
 			<img class="cover" src="pictures/vuex.png">
 		</figure>
 		<style>
-			#layers .cover{
+			#vuex2 .cover{
 				width: 100%;
 			}
 		</style>
 	</section>
 
 	<section class="slide">
-		<h2>Server-Side Rendering</h2>
+		<h2>Server-Side Rendering (vue-server-renderer)</h2>
 		<p>Allows you to render your apps on the server,
 			then hydrate them with client side reactivity
 			after the page loads, greatly increasing the responsiveness
 			and improving the load time of your pages</p>
-		<a href="https://ssr.vuejs.org/en/">LINK</a>
 	</section>
 
 	<section class="slide grid" id="nuxt">
@@ -1034,15 +1106,15 @@ Vue.use(MyPlugin, { someOption: true })
 	</section>
 
 	<section class="slide grid" id="dev-tool">
-		<h2>Chrome devtools extension</h2>
+		<h2>Chrome Devtools Extension</h2>
 		<figure>
 			<img class="cover" src="pictures/dev-tools.png">
 		</figure>
-		<a href="https://github.com/vuejs/vue-devtools">LINK</a>
 		<style>
 			#dev-tool .cover{
-				width: 60%;
+				width: 52%;
 				transform: translateX(-50%);
+				top: 180px;
 			}
 		</style>
 	</section>
@@ -1128,157 +1200,11 @@ Vue.use(MyPlugin, { someOption: true })
 		<h2>Questions</h2>
 	</section>
 
-	<section class="slide">
-		<h2>Title</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur <a href="#4">adipisicing</a> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <em>quis nostrud</em> exercitation ullamco laboris <strong>nisi ut aliquip</strong> ex ea commodo consequat. Duis aute irure <i>dolor</i> in reprehenderit in voluptate velit esse cillum <b>dolore</b> eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in <code>&lt;culpa&gt;</code> qui officia deserunt mollit anim id est laborum.</p>
-	</section>
-
-	<section class="slide">
-		<h2>Title</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur <a href="#4">adipisicing</a> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <em>quis nostrud</em> exercitation ullamco laboris <strong>nisi ut aliquip</strong> ex ea commodo consequat. Duis aute irure <i>dolor</i> in reprehenderit in voluptate velit esse cillum <b>dolore</b> eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in <code>&lt;culpa&gt;</code> qui officia deserunt mollit anim id est laborum.</p>
-	</section>
-
-	<section class="slide">
-		<h2>Plain text on your slides</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur <a href="#4">adipisicing</a> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <em>quis nostrud</em> exercitation ullamco laboris <strong>nisi ut aliquip</strong> ex ea commodo consequat. Duis aute irure <i>dolor</i> in reprehenderit in voluptate velit esse cillum <b>dolore</b> eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in <code>&lt;culpa&gt;</code> qui officia deserunt mollit anim id est laborum.</p>
-	</section>
-
-	<section class="slide">
-		<h2>Two columns if you like</h2>
-		<p class="double">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
-	</section>
-
-	<section class="slide">
-		<h2>All kind of lists</h2>
-		<ol>
-			<li>Simple lists are marked with bullets</li>
-			<li>Ordered lists begin with a number</li>
-			<li>You can even nest lists one inside another
-				<ul>
-					<li>Or mix their types</li>
-					<li>But do not go too far</li>
-					<li>Otherwise audience will be bored</li>
-				</ul>
-			</li>
-			<li>Look, seven rows exactly!</li>
-		</ol>
-	</section>
-
-	<section class="slide">
-		<h2>Serious citations</h2>
-		<figure>
-			<blockquote>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
-			</blockquote>
-			<figcaption>Marcus Tullius Cicero</figcaption>
-		</figure>
-	</section>
-
-	<section class="slide">
-		<h2>Code samples</h2>
-		<pre>
-			<code>&lt;!DOCTYPE html&gt;</code>
-			<code class="mark">&lt;html lang="en"&gt;</code>
-			<code><mark>&lt;head&gt;</mark> <span class="comment">&lt;!--Comment--&gt;</span></code>
-			<code>    &lt;title&gt;Shower&lt;/title&gt;</code>
-			<code>    &lt;meta charset="<mark class="important">UTF-8</mark>"&gt;</code>
-			<code>    &lt;link rel="stylesheet" href="screen.css"&gt;</code>
-			<code><mark>&lt;/head&gt;</mark></code>
-		</pre>
-	</section>
-
-	<section class="slide">
-		<h2>Even tables</h2>
-		<table>
-		<tr>
-			<th scope="col">Locavore</th>
-			<th>Umami</th>
-			<th>Helvetica</th>
-			<th>Vegan</th>
-		</tr>
-		<tr>
-			<th scope="row">Fingerstache</th>
-			<td>Kale</td>
-			<td>Chips</td>
-			<td>Keytar</td>
-		</tr>
-		<tr>
-			<th scope="row">Sriracha</th>
-			<td>Gluten-free</td>
-			<td>Ennui</td>
-			<td>Keffiyeh</td>
-		</tr>
-		<tr>
-			<th scope="row">Thundercats</th>
-			<td>Jean</td>
-			<td>Shorts</td>
-			<td>Biodiesel</td>
-		</tr>
-		<tr>
-			<th scope="row">Terry</th>
-			<td>Richardson</td>
-			<td>Swag</td>
-			<td>Blog</td>
-		</tr>
-		</table>
-		<p>It’s good to have information organized.</p>
-	</section>
-
-	<section class="slide" id="picture">
-		<h2>Pictures</h2>
-		<figure>
-			<img class="cover" src="pictures/picture.jpg" alt="Orange typewriter on a wooden table close-up">
-			<figcaption class="white">
-				<a href="http://fiftyfootshadows.net/">© John Carey</a>
-			</figcaption>
-		</figure>
-		<style>
-			#picture h2 {
-				color:#FFF;
-				}
-		</style>
-	</section>
-
-	<section class="slide">
-		<h2 class="shout shrink">You can even shout this way</h2>
-	</section>
-
-	<section class="slide">
-		<h2>Inner navigation</h2>
-		<ol>
-			<li>Lets you reveal list items one by one</li>
-			<li class="next">To keep some key points</li>
-			<li class="next">In secret from audience</li>
-			<li class="next">But it will work only once</li>
-			<li class="next">Nobody wants to see the same joke twice</li>
-		</ol>
-	</section>
-
-	<section class="slide grid">
-		<h2>All nicely aligned to grid</h2>
-	</section>
-
-	<section class="slide" id="see-more">
-		<h2 class="shout">
-			<img src="pictures/logo.svg" alt="Shower logo">
-			<a href="https://github.com/shower/shower">See more on GitHub</a>
-		</h2>
-		<style>
-			#see-more h2 {
-				font-size:100px
-				}
-			#see-more img {
-				width:0.72em;
-				height:0.72em;
-				}
-		</style>
-	</section>
-
 	<footer class="badge">
 		<a href="https://github.com/shower/shower">Fork me on GitHub</a>
 	</footer>
 
-	<div class="progress"></div>
+	<!-- <div class="progress"></div> -->
 
 	<script src="node_modules/shower-core/shower.min.js"></script>
 	<!-- Copyright © 2017 Yours Truly, Famous Inc. -->
