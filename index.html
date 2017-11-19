@@ -5,8 +5,8 @@
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- <link rel="stylesheet" href="node_modules/shower-material/styles/screen-4x3.css"> -->
-	<link rel="stylesheet" href="./theme3x4.css">
+	<link rel="stylesheet" href="node_modules/shower-material/styles/screen-4x3.css">
+	<!-- <link rel="stylesheet" href="./theme3x4.css"> -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/agate.min.css">
 	<link rel="stylesheet" href="./agate.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
@@ -507,6 +507,18 @@ var app4 = new Vue({
 
 	<section class="slide">
 		<h2>Modifiers</h2>
+		<pre>
+			<code class="html">
+&lt;form v-on:submit.prevent="onSubmit"&gt; ... &lt;/form&gt;
+&lt;div v-on:click.once.stop="doSomething"&gt;Do something&lt;/div&gt;
+
+&lt;!-- Alt + C --&gt;
+&lt;input v-on:keyup.alt.67="clear"&gt;
+
+&lt;!-- Ctrl + Click --&gt;
+&lt;div v-on:click.ctrl="doSomething"&gt;Do something&lt;/div&gt;
+			</code>
+		</pre>
 		<a href="https://vuejs.org/v2/guide/syntax.html#Modifiers">LINK</a>
 	</section>
 
@@ -659,25 +671,108 @@ example2.greet()
 
 	<section class="slide">
 		<h2>Components</h2>
+		<pre>
+			<code>
+&lt;div id="example"&gt;
+&lt;my-component&gt;&lt;/my-component&gt;
+&lt;/div&gt;
+			</code>
+		</pre>
+		<pre>
+			<code>
+Vue.component('my-component', {
+  template: '&lt;div&gt;A custom component!&lt;/div&gt;'
+})
+			</code>
+		</pre>
 		<a href="https://vuejs.org/v2/guide/components.html">LINK</a>
 	</section>
 
 	<section class="slide">
-		<h2>Global and Local Registration</h2>
+		<h2>Local Registration</h2>
+		<pre>
+			<code class="javascript">
+var Child = {
+  template: '&lt;div&gt;A custom component!&lt;/div&gt;'
+}
+
+new Vue({
+  components: {
+    // my-component will only be available in parent's template
+    'my-component': Child
+  }
+})
+			</code>
+		</pre>
 		<a href="https://vuejs.org/v2/guide/components.html">LINK</a>
 	</section>
 
-	<section class="slide">
-		<h2>Composing-Components</h2>
+	<section class="slide grid" id="composing">
+		<h2>Composing Components</h2>
+		<figure>
+			<img class="cover" src="pictures/props-events.png">
+		</figure>
+		<style>
+			#composing .cover{
+				width: 52%;
+    			top: 56%;
+			}
+		</style>
 		<a href="https://vuejs.org/v2/guide/components.html#Composing-Components">LINK</a>
 	</section>
 
 	<section class="slide">
 		<h2>One-Way Data Flow</h2>
+		<pre>
+			<code class="js">
+Vue.component('child', {
+  // camelCase in JavaScript
+  props: ['myMessage'],
+  template: '&lt;span&gt;{{ myMessage }}&lt;/span&gt;'
+})
+			</code>
+		</pre>
+		<pre>
+			<code>
+props: {
+  propA: Boolean,
+  propB: [String, Number],
+  propC: {
+    type: Number,
+    required: true,
+    default: 100,
+    validator: function (value) {
+      return value > 10
+    }
+  }
+}
+			</code>
+		</pre>
 		<a href="https://vuejs.org/v2/guide/components.html#One-Way-Data-Flow">LINK</a>
 	</section>
+
 	<section class="slide">
 		<h2>Custom Events</h2>
+		<pre>
+			<code>
+&lt;div id="counter-event-example"&gt;
+  &lt;p&gt;{{ total }}&lt;/p&gt;
+  &lt;button-counter v-on:increment="incrementTotal"&gt;&lt;/button-counter&gt;
+&lt;/div&gt;
+			</code>
+		</pre>
+		<pre>
+			<code>
+Vue.component('button-counter', {
+  template: '&lt;button v-on:click="incrementCounter"&gt;{{ counter }}&lt;/button&gt;',
+  methods: {
+    incrementCounter: function () {
+      this.$emit('increment')
+    }
+  }
+})
+			</code>
+		</pre>
 		<a href="https://vuejs.org/v2/guide/components.html#Custom-Events">LINK</a>
 	</section>
 
@@ -698,17 +793,83 @@ example2.greet()
 
 	<section class="slide">
 		<h2>Filters</h2>
+		<pre>
+			<code class="html">
+{{ message | upperCase }}
+&lt;div v-bind:id="rawId | formatId"&gt;&lt;/div&gt;
+			</code>
+		</pre>
+		<pre>
+			<code class="js">
+Vue.filter('upperCase', function (value) {
+  if (!value) return ''
+  return value.toUpperCase()
+})
+			</code>
+		</pre>
+		<pre>
+			<code class="html">
+{{ message | filterA | filterB('arg1', arg2) }}
+			</code>
+		</pre>
 		<a href="https://vuejs.org/v2/guide/filters.html">LINK</a>
 	</section>
 
-	<section class="slide">
+	<section class="slide grid">
 		<h2>Mixins</h2>
+		<p>Flexible way to distribute reusable functionalities for Vue components</p>
+		<pre>
+			<code class="js">
+
+// define a mixin object
+var myMixin = {
+  created: function () {
+    console.log('hello from mixin!')
+  }
+}
+// define a component that uses this mixin
+var Component = Vue.extend({
+  mixins: [myMixin]
+})
+var component = new Component() // => "hello from mixin!"
+			</code>
+		</pre>
 		<a href="https://vuejs.org/v2/guide/mixins.html">LINK</a>
 	</section>
 	
 	<section class="slide">
 		<h2>Plugins</h2>
+		<p>Plugins usually add global-level functionality to Vue</p>
+		<ol>
+			<li>Add some global methods or properties</li>
+			<li>Add one or more global assets: directives/filters/transitions etc</li>
+			<li>Add some component options by global mixin</li>
+			<li>Add some Vue instance methods by attaching them to Vue.prototype.</li>
+			<li>A library that provides an API of its own, while at the same time injecting some combination of the above</li>
+		</ol>
 		<a href="https://vuejs.org/v2/guide/plugins.html">LINK</a>
+	</section>
+
+	<section class="slide">
+		<h2>Plugin example</h2>
+		<pre>
+			<code class="js">
+MyPlugin.install = function (Vue, options) {
+  // 1. add global method or property
+  Vue.myGlobalMethod = function () {...}
+  // 2. add a global asset
+  Vue.directive('my-directive', {...})
+  // 3. inject some component options
+  Vue.mixin(...)
+  // 4. add an instance method
+  Vue.prototype.$myMethod = function (methodOptions) {...}
+}
+
+// calls `MyPlugin.install(Vue)`
+Vue.use(MyPlugin, { someOption: true })
+			</code>
+		</pre>
+		<a href="https://vuejs.org/v2/guide/render-function.html">LINK</a>
 	</section>
 
 	<section class="slide">
@@ -719,19 +880,6 @@ example2.greet()
 	<section class="slide">
 		<h2>TypeScript Support</h2>
 		<a href="https://vuejs.org/v2/guide/typescript.html">LINK</a>
-	</section>
-
-	<section class="slide">
-		<h2>Title</h2>
-		<pre class="javascript">
-			<code>var data = { a: 1 }</code>
-			<code>var vm = new Vue({</code>
-			<code>  el: '#example',</code>
-			<code>  data: data</code>
-			<code>})</code>
-			<code>vm.$data === data // => true</code>
-			<code>vm.$el === document.getElementById('example') // => true</code>
-		</pre>
 	</section>
 
 	<section class="slide" id="lifecycle">
@@ -746,22 +894,6 @@ example2.greet()
 	</section>
 
 	<section class="slide">
-		<h2>Title</h2>
-		<pre class="javascript">
-			<code>new Vue({</code>
-			<code>data: {</code>
-			<code>a: 1</code>
-			<code>},</code>
-			<code>created: function () {</code>
-			<code>// `this` points to the vm instance</code>
-			<code>console.log('a is: ' + this.a)</code>
-			<code>}</code>
-			<code>})</code>
-			<code>// => "a is: 1"</code>
-		</pre>
-	</section>
-
-	<section class="slide">
 		<h2>Application as a tree of reusable self-contained components</h2>
 		<figure>
 			<img class="cover" src="pictures/components.png">
@@ -773,7 +905,18 @@ example2.greet()
 		</style>
 	</section>
 
-	<section class="slide">
+	<section class="slide" id="vue-component">
+		<figure>
+			<img class="cover" src="pictures/vue-component-1.png">
+		</figure>
+		<style>
+			/* #vue-component .cover{ */
+				/* width: 100%; */
+			/* } */
+		</style>
+	</section>
+
+	<!-- <section class="slide">
 		<h2>Single file component</h2>
 		<ul>
 			<li>Single file .vue where template, javascript and css are encapsulated</li>
@@ -784,7 +927,7 @@ example2.greet()
 			<li>Component scoped</li>
 		</ul>
 		<p>Image</p>
-	</section>
+	</section> -->
 
 	<section class="slide">
 		<h2>Vue Router</h2>
@@ -801,9 +944,22 @@ example2.greet()
 		</ul>
 	</section>
 
-	<section class="slide">
-		<h2>State management</h2>
-		<a href="https://github.com/vuejs/vuex">LINK</a>
+	<section class="slide grid" id="vuex">
+		<h2>State management with Vuex</h2>
+		<ul>
+			<li>Vuex is a <b>state management pattern + library</b> for Vue.js applications</li>
+			<li>It serves as a centralized store for all the components in an application</li>
+			<li>
+				Inspired by <b>Flux</b>, <b>Redux</b> and <b>The Elm Architecture</b>
+				<img src="pictures/flow.png" alt="">
+			</li>
+			<li>Tailored specifically for Vue.js to take advantage of its reactivity system</li>
+		</ul>
+		<style>
+			#vuex img{
+				width: 420px;
+			}
+		</style>
 	</section>
 
 	<section class="slide">
