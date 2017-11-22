@@ -8,7 +8,7 @@
 	<!-- <link rel="stylesheet" href="node_modules/shower-material/styles/screen-4x3.css"> -->
 	<link rel="stylesheet" href="./theme3x4.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/agate.min.css">
-	<link rel="stylesheet" href="./agate.css">
+	<link rel="stylesheet" href="./monokai-sublime.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
 	<script>hljs.initHighlightingOnLoad();</script>
 	
@@ -59,6 +59,17 @@
 		</style>
 	</section>
 
+	<section class="slide" id="vue-react">
+		<figure>
+			<img class="cover" src="pictures/vue-react.jpg">
+		</figure>
+		<style>
+			#vue-react .cover{
+				width: 80%;
+			}
+		</style>
+	</section>
+
 	<section class="slide">
 		<h2>Cергій Присяжнюк</h2>
 		<ul>
@@ -69,17 +80,18 @@
 		</ul>
 	</section>
 
-	<!-- <section class="slide" id="dejavu">
-		<h2>Deja Vu<span style="opacity: 0.3">e</span>?</h2>
-		<figure>
-			<img class="cover" src="pictures/dejavu.jpg">
-		</figure>
+	<section class="slide">
+		<h2 class="shout shrink">Origination</h2>
 		<style>
-			#dejavu .cover{
-				top: 56%;
+			.shout.shrink::after{
+				background: none;
+			}
+			.shout.shrink{
+				color: black;
+				font-size: 80px;
 			}
 		</style>
-	</section> -->
+	</section>
 
 	<section class="slide" id="history">
 		<h2>History</h2>
@@ -209,7 +221,7 @@
 			<tr>
 				<td><img src="pictures/nbc.png" class="nbc" alt=""></td>
 				<td><img src="pictures/sas.png" alt=""></td>
-				<td><img src="pictures/tencent.png" alt=""></td>
+				<td><img src="pictures/viseven.png" alt=""></td>
 			</tr>
 		</table>
 		<style>
@@ -498,16 +510,15 @@ var app = new Vue({
 			<pre>
 				<code>
 &lt;div id="app"&gt;
-	&lt;span v-if="condition1"&gt;Now you see me&lt;/span&gt;
-	<span class="next">&lt;span v-else-if="condition2"&gt;Or me&lt;/span&gt;</span>
-	<span class="next">&lt;span v-else&gt;Otherwise me&lt;/span&gt;</span>
+	&lt;span v-if="condition1"&gt; Now you see me &lt;/span&gt;
+	<span class="next">&lt;span v-else-if="condition2"&gt; Or m e&lt;/span&gt;</span>
+	<span class="next">&lt;span v-else&gt; Otherwise me &lt;/span&gt;</span>
 &lt;/div&gt;
 				</code>
 			</pre>
 			<pre class="javascript">
 				<code>
 var app = new Vue({
-	el: '#app',
 	data: {
 		condition1: true,
 		condition2: false
@@ -530,33 +541,26 @@ var app = new Vue({
 		<div class="box"></div>
 		<pre>
 			<code class="html">
-&lt;div id="app"&gt;				
-	&lt;ol&gt;
-		&lt;li v-for="todo in todos"&gt;
-			{{ todo.text }}
-		&lt;/li&gt;
-	&lt;/ol&gt;
-&lt;/div&gt;
+&lt;li v-for="todo in todos"&gt;
+	{{ todo.text }}
+&lt;/li&gt;
 			</code>
 		</pre>
 		<pre>
 			<code class="javascript">
-var app4 = new Vue({
-	el: '#app-4',
+var app = new Vue({
 	data: {
 		todos: [
-			{ text: 'Learn JavaScript' },
 			{ text: 'Learn Vue' },
-			{ text: 'Build something awesome' }
-		]
-	}
+			...
+	]}
 })
 			</code>
 		</pre>
 	</div>
 		<style>
 			#list code{
-				font-size: 16px;
+				font-size: 22px;
 			}
 			#list .box{
 				display: flex;
@@ -566,24 +570,18 @@ var app4 = new Vue({
 	</section>
 
 	<section class="slide" id="class-bindings">
-		<h2>Class Bindings</h2>
+		<h2>Class and Style Bindings</h2>
 		<pre>
 			<code class="html">
 &lt;div :class="{ active: isActive }"&gt;&lt;/div&gt;
 <span class="next">&lt;div class="static"
   :class="{ active: isActive, 'text-danger': hasError }"&gt;
 &lt;/div&gt;</span>
-<span class="next">&lt;div :class="classObject"&gt;&lt;/div&gt;</span>
 			</code>
 		</pre>
 		<pre class="next">
-			<code class="js">
-data: {
-	classObject: {
-		active: true,
-		'text-danger': false
-	}
-}
+			<code class="html">
+&lt;div :style="{ color: 'red', fontSize: '8px' }"&gt;&lt;/div&gt;
 			</code>
 		</pre>
 		<style>
@@ -593,7 +591,7 @@ data: {
 		</style>
 	</section>
 
-	<section class="slide" id="style-bindings">
+	<!-- <section class="slide" id="style-bindings">
 		<h2>Style Bindings</h2>
 		<pre>
 			<code class="html">
@@ -624,7 +622,7 @@ data: {
 	font-size: 18px;
 }
 		</style>
-	</section>
+	</section> -->
 
 	<section class="slide" id="custom-directives">
 		<h2>Custom Directives</h2>
@@ -634,7 +632,6 @@ data: {
 Vue.directive('focus', {
 	// When the bound element is inserted into the DOM...
 	inserted: function (el, binding, vnode) {
-		// Focus the element
 		el.focus()
 	}
 })
@@ -662,11 +659,10 @@ Vue.directive('focus', {
 			</pre>
 			<pre>
 				<code>
-var example = new Vue({
-	...
+new Vue({
 	methods: {
 		greet: function (event) {
-			alert('Hello ' + this.name + '!')
+			alert('Hello ' + this.name)
 		}
 	}
 })
@@ -731,7 +727,7 @@ Vue.filter('upperCase', function (value) {
 })
 			</code>
 		</pre>
-		<pre>
+		<pre class="next">
 			<code class="html">
 {{ message | filterA | filterB('arg1', arg2) }}
 			</code>
@@ -743,7 +739,6 @@ Vue.filter('upperCase', function (value) {
 		<pre>
 			<code>
 var vm = new Vue({
-  el: '#demo',
   data: {
     firstName: 'Foo',
     lastName: 'Bar',
@@ -762,7 +757,7 @@ var vm = new Vue({
 		</pre>
 		<style>
 			#watchers code {
-				font-size: 18px;
+				font-size: 22px;
 			}
 		</style>
 	</section>
@@ -792,12 +787,37 @@ var vm = new Vue({
 			</pre>
 			<style>
 				#computed code{
-					font-size: 18px;
+					font-size: 20px;
 				}
 			</style>
 		</section>
 
-	<section class="slide">
+		<section class="slide">
+			<h2 class="shout shrink">Single file components</h2>
+			<style>
+				.shout.shrink::after{
+					background: none;
+				}
+				.shout.shrink{
+					color: black;
+					font-size: 80px;
+				}
+			</style>
+		</section>
+
+		<section class="slide" id="vue-component">
+			<figure>
+				<img class="cover" src="pictures/vue-component.png">
+			</figure>
+			<style>
+				#vue-component .cover{
+					height: 110%;
+    				max-height: 120%;
+				}
+			</style>
+		</section>
+
+	<!-- <section class="slide">
 			<h2>Components</h2>
 			<pre>
 				<code>
@@ -830,6 +850,21 @@ new Vue({
 })
 			</code>
 		</pre>
+	</section> -->
+
+	<section class="slide">
+		<h2>Component Registration</h2>
+		<pre>
+			<code class="javascript">
+import MyComponent from './my-component.vue';
+
+new Vue({
+	components: {
+		'my-component': MyComponent
+	}
+})
+			</code>
+		</pre>
 	</section>
 
 	<section class="slide" id="lifecycle-example">
@@ -839,11 +874,10 @@ new Vue({
 Vue.component('my-component', {
 	template: '&lt;div&gt;A custom component!&lt;/div&gt;',
 	data: function(){
-		return { a: 1 }
+		return { value: 1 }
 	},
 	created: function () {
-		// `this` points to the component instance
-		console.log('a is: ' + this.a)
+		console.log('Value is: ' + this.value)
 	},
 	mounted: function () {
 		//...
@@ -876,27 +910,6 @@ Vue.component('my-component', {
 		</style>
 	</section> -->
 
-	<section class="slide">
-		<h2 class="shout shrink">Single file components</h2>
-		<style>
-			.shout.shrink::after{
-				background: none;
-			}
-			.shout.shrink{
-				color: black;
-				font-size: 80px;
-			}
-		</style>
-	</section>
-
-	<section class="slide" id="vue-component">
-		<figure>
-			<img class="cover" src="pictures/vue-component-1.png">
-		</figure>
-		<style>
-		</style>
-	</section>
-
 	<section class="slide" id="composing">
 		<h2>Composing Components</h2>
 		<figure>
@@ -911,24 +924,28 @@ Vue.component('my-component', {
 	</section>
 
 	<section class="slide" id="props1">
-		<h2>Props</h2>
+		<h2>Props and events</h2>
 		<pre>
 			<code class="html">
 &lt;child message="hello!"&gt;&lt;/child&gt;
 &lt;child :message="myMessage"&gt;&lt;/child&gt;
+&lt;child @updated="doSomethig"&gt;&lt;/child&gt;
 			</code>
 		</pre>
 		<pre>
 			<code class="js">
 Vue.component('child', {
 	props: ['message'],
-	template: '&lt;span&gt;{{ myMessage }}&lt;/span&gt;'
-})
+	methods: {
+		update: function () {
+			this.$emit('updated')
+		}
+}}
 			</code>
 		</pre>
 	</section>
 
-	<section class="slide" id="props2">
+	<!-- <section class="slide" id="props2">
 			<h2>Props</h2>
 			<pre>
 				<code>
@@ -946,9 +963,9 @@ props: {
 }
 				</code>
 			</pre>
-		</section>
+		</section> -->
 
-	<section class="slide" id="custom-events">
+	<!-- <section class="slide" id="custom-events">
 		<h2>Custom Events</h2>
 		<pre>
 			<code class="html">
@@ -975,7 +992,7 @@ Vue.component('button-counter', {
 				font-size: 18px;
 			}
 		</style>
-	</section>
+	</section> -->
 
 	<section class="slide" id="mixins">
 		<h2>Mixins</h2>
@@ -983,22 +1000,21 @@ Vue.component('button-counter', {
 		<pre>
 			<code class="js">
 
-// define a mixin object
 var myMixin = {
   created: function () {
     console.log('hello from mixin!')
   }
 }
-// define a component that uses this mixin
-var Component = Vue.extend({
-  mixins: [myMixin]
+
+new Vue({
+	mixins: [ myMixin ]
 })
-var component = new Component() // => "hello from mixin!"
+// => "hello from mixin!"
 			</code>
 		</pre>
 		<style>
 			#mixins code{
-				font-size: 18px; 
+				font-size: 22px; 
 			}
 		</style>
 	</section>
@@ -1032,7 +1048,7 @@ Vue.use(MyPlugin, { someOption: true })
 		</pre>
 		<style>
 			#plugin code{
-				font-size: 20px; 
+				font-size: 22px; 
 			}
 		</style>
 	</section>
@@ -1083,8 +1099,7 @@ Vue.use(MyPlugin, { someOption: true })
 		<ul>
 			<li class="next">Vuex is a <b>state management pattern + library</b> for Vue.js applications</li>
 			<li class="next">It serves as a centralized store for all the components in an application</li>
-			<li class="next">
-				Inspired by <b>Flux</b>, <b>Redux</b> and <b>The Elm Architecture</b>
+			<li class="next">Inspired by <b>Flux</b>, <b>Redux</b> and <b>The Elm Architecture</b>
 				<img src="pictures/flow.png" alt="">
 			</li>
 			<li class="next">Tailored specifically for Vue.js to take advantage of its reactivity system</li>
@@ -1107,12 +1122,24 @@ Vue.use(MyPlugin, { someOption: true })
 		</style>
 	</section>
 
-	<section class="slide">
-		<h2>Server-Side Rendering (vue-server-renderer)</h2>
+	<!-- <section class="slide">
+		<h2>Server-Side Rendering<br/> (vue-server-renderer)</h2>
 		<p>Allows you to render your apps on the server,
 			then hydrate them with client side reactivity
 			after the page loads, greatly increasing the responsiveness
 			and improving the load time of your pages</p>
+	</section> -->
+
+	<section class="slide" id="ssr">
+		<h2>Server-Side Rendering with<br/> vue-server-renderer</h2>
+		<figure>
+			<img class="cover" src="pictures/hn-architecture.png">
+		</figure>
+		<style>
+			#ssr .cover{
+				top: 60%;
+			}
+		</style>
 	</section>
 
 	<section class="slide" id="nuxt">
@@ -1145,26 +1172,32 @@ Vue.use(MyPlugin, { someOption: true })
 			<li>ES6/ES7 Transpilation</li>
 			<li>Hot module replacement in Development</li>
 			<li>Pre-processor: Sass, Less, Stylus, etc.</li>
-			<li>HTTP/2 push headers ready</li>
 			<li>Extending with Modular architecture</li>
 		</ul>
 	</section>
 
-	<section class="slide">
-		<h2>Architecture overview</h2>
-		<figure>
-			<img class="cover" src="pictures/hn-architecture.png">
-		</figure>
-	</section>
-
-	<section class="slide" id="cli">
+	<section class="slide" id="cli1">
 		<h2>Vue CLI</h2>
-		<img class="cover" src="pictures/vue-cli.jpg">
+		<img class="cover" src="pictures/cli-1.png">
 		<style>
-			#cli .cover{
+			#cli1 .cover{
 				width: 81%;
 				top: 217px;
 				transform: translateX(-50%);
+			}
+		</style>
+	</section>
+	<section class="slide" id="cli2">
+		<h2>Vue CLI</h2>
+		<!-- <img class="cover" src="pictures/cli-2.png"> -->
+		<div class="box">
+			<img src="pictures/cli-2.png">
+			<img src="pictures/folders.png">
+		</div>
+		<style>
+			#cli2 .box{
+				display: flex;
+				justify-content: space-between;
 			}
 		</style>
 	</section>
@@ -1260,8 +1293,17 @@ Vue.use(MyPlugin, { someOption: true })
 		</style>
 	</section>
 
-	<section class="slide">
-		<h2>Questions</h2>
+	<section class="slide" id="questions">
+		<h2 class="shout shrink">Questions?</h2>
+		<style>
+			.shout.shrink::after{
+				background: none;
+			}
+			.shout.shrink{
+				color: black;
+				font-size: 80px;
+			}
+		</style>
 	</section>
 
 	<footer class="badge">
