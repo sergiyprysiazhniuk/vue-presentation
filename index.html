@@ -69,7 +69,7 @@
 		</ul>
 	</section>
 
-	<section class="slide" id="dejavu">
+	<!-- <section class="slide" id="dejavu">
 		<h2>Deja Vu<span style="opacity: 0.3">e</span>?</h2>
 		<figure>
 			<img class="cover" src="pictures/dejavu.jpg">
@@ -79,9 +79,9 @@
 				top: 56%;
 			}
 		</style>
-	</section>
+	</section> -->
 
-	<section class="slide grid" id="history">
+	<section class="slide" id="history">
 		<h2>History</h2>
 		<table>
 			<tr>
@@ -133,7 +133,7 @@
 		</style>
 	</section>
 
-	<section class="slide grid" id="quote">
+	<section class="slide" id="quote">
 		<figure class="cover">
 			<blockquote>
 				<p>I figured, what if I could just extract the part that I really<br>
@@ -151,7 +151,20 @@
 		</style>
 	</section>
 
-	<section class="slide grid" id="stars">
+	<section class="slide" id="dejavu">
+		<!-- <h2>Deja Vu<span style="opacity: 0.3">e</span>?</h2> -->
+		<h2>Deja Vu(e)?</h2>
+		<figure>
+			<img class="cover" src="pictures/dejavu.jpg">
+		</figure>
+		<style>
+			#dejavu .cover{
+				top: 56%;
+			}
+		</style>
+	</section>
+
+	<section class="slide" id="stars">
 		<h2>Popularity</h2>
 		<table>
 			<tr class="next">
@@ -180,7 +193,7 @@
 		</style>
 	</section>
 
-	<section class="slide grid" id="companies">
+	<section class="slide" id="companies">
 		<h2>Who uses?</h2>
 		<table>
 			<tr>
@@ -218,7 +231,7 @@
 		</style>
 	</section>
 
-	<section class="slide grid" id="comparison">
+	<section class="slide" id="comparison">
 		<h2>Vue vs React vs Angular</h2>
 		<table>
 			<tr>
@@ -233,32 +246,32 @@
 				<td>16.1.1</td>
 				<td>5.0.3</td>
 			</tr>
-			<tr>
+			<tr class="next">
 				<td>Github stars:</td>
 				<td>74 107</td>
 				<td>81 413</td>
 				<td>30 184</td>
 			</tr>
-			<tr>
+			<tr class="next">
 				<td>Contributors:</td>
 				<td>156</td>
 				<td>1 130</td>
 				<td>539</td>
 			</tr>
-			<tr>
+			<tr class="next">
 				<td>Bundle size min+gzip:</td>
-				<td>20 KB</td>
+				<td>23 KB</td>
 				<td>43 KB</td>
-				<td>111 KB</td>
+				<td>143 KB</td>
 			</tr>
-			<tr>
+			<tr class="next">
 				<td>Performance* (slowdown):</td>
 				<td>1.33</td>
 				<td>1.26</td>
 				<td>1.33</td>
 			</tr>
 		</table>
-		<p class="footnote">*Based on 3rd party benchmark <a href="https://github.com/krausest/js-framework-benchmark">github.com/krausest/js-framework-benchmark</a></p>
+		<p class="footnote next">*Based on 3rd party benchmark <a href="https://github.com/krausest/js-framework-benchmark">github.com/krausest/js-framework-benchmark</a></p>
 		<style>
 			#comparison td{
 				/* background: none; */
@@ -293,7 +306,7 @@
 		</style>
 	</section>
 
-	<section class="slide" id="memory">
+	<!-- <section class="slide" id="memory">
 		<figure>
 			<img class="cover" src="pictures/memory.png">
 		</figure>
@@ -302,7 +315,7 @@
 				width: 100%;
 			}
 		</style>
-	</section>
+	</section> -->
 
 	<section class="slide" id="what">
 		<h2>What is Vue.js</h2>
@@ -322,6 +335,19 @@
 		</ul>
 	</section>
 
+	<section class="slide">
+		<h2 class="shout shrink">Progressive framework</h2>
+		<style>
+			.shout.shrink::after{
+				background: none;
+			}
+			.shout.shrink{
+				color: black;
+				font-size: 80px;
+			}
+		</style>
+	</section>
+
 	<section class="slide" id="layers">
 		<figure>
 			<img class="cover" src="pictures/progressive.png">
@@ -333,7 +359,7 @@
 		</style>
 	</section>
 
-	<section class="slide grid" id="features">
+	<section class="slide" id="features">
 		<h2>Key Features</h2>
 		<ul>
 			<li class="next">MVVM</li>
@@ -348,11 +374,10 @@
 		</style>
 	</section>
 
-	<section class="slide grid" id="why">
+	<section class="slide" id="why">
 		<h2>Why Vue.js?</h2>
 		<ul>
 			<li class="next">Fast</li>
-			<li class="next">Adoptable</li>
 			<li class="next">Scalable</li>
 			<li class="next">Lightweight</li>
 			<li class="next">Simple (low barrier of entry)</li>
@@ -396,6 +421,19 @@ var app = new Vue({
 		</style>
 	</section>
 
+	<section class="slide">
+		<h2 class="shout shrink">Reactivity system</h2>
+		<style>
+			.shout.shrink::after{
+				background: none;
+			}
+			.shout.shrink{
+				color: black;
+				font-size: 80px;
+			}
+		</style>
+	</section>
+
 	<section class="slide" id="reactivity">
 		<a href="https://vuejs.org/v2/guide/reactivity.html"></a>
 		<figure>
@@ -409,12 +447,25 @@ var app = new Vue({
 	</section>
 
 	<section class="slide">
+		<h2 class="shout shrink">Declarative rendering</h2>
+		<style>
+			.shout.shrink::after{
+				background: none;
+			}
+			.shout.shrink{
+				color: black;
+				font-size: 80px;
+			}
+		</style>
+	</section>
+
+	<section class="slide">
 			<h2>Text Rendering</h2>
 			<pre>
 				<code class="html">
-&lt;span&gt;Message: {{ msg }}&lt;/span&gt;
-&lt;span v-once&gt;This will never change: {{ msg }}&lt;/span&gt;
-&lt;span v-html="rawHtml"&gt;&lt;/span&gt;
+<span>&lt;span&gt;Message: {{ msg }}&lt;/span&gt;</span>
+<span class="next">&lt;span v-once&gt;This will never change: {{ msg }}&lt;/span&gt;</span>
+<span class="next">&lt;span v-html="rawHtml"&gt;&lt;/span&gt;</span>
 				</code>
 			</pre>
 		</section>
@@ -424,7 +475,7 @@ var app = new Vue({
 			<pre>
 				<code class="html">
 &lt;div v-bind:id="dynamicId"&gt;&lt;/div&gt;
-&lt;button :disabled="isButtonDisabled"&gt;Button&lt;/button&gt;
+<span class="next">&lt;button :disabled="isButtonDisabled"&gt;Button&lt;/button&gt;</span>
 				</code>
 			</pre>
 		</section>
@@ -514,169 +565,18 @@ var app4 = new Vue({
 		</style>
 	</section>
 
-	<section class="slide" id="custom-directives">
-		<h2>Custom Directives</h2>
-		<pre>
-			<code class="js">
-// Register a global custom directive called `v-focus`
-Vue.directive('focus', {
-	// When the bound element is inserted into the DOM...
-	inserted: function (el, binding) {
-		// Focus the element
-		el.focus()
-	}
-})
-			</code>
-		</pre>
-		<pre>
-			<code class="html">
-&ltinput v-focus&gt
-			</code>
-		</pre>
-		<style>
-			#custom-directives code{
-				font-size: 22px;
-			}
-		</style>
-	</section>
-
-	<section class="slide" id="event-handling">
-			<h2>Event Handling</h2>
-			<pre>
-				<code>
-&lt;button v-on:click="greet">Greet&lt;/button&gt;
-&lt;button @click="greet">Greet&lt;/button&gt;
-				</code>
-			</pre>
-			<pre>
-				<code>
-var example = new Vue({
-	...
-	methods: {
-		greet: function (event) {
-			alert('Hello ' + this.name + '!')
-		}
-	}
-})
-// you can invoke methods in JavaScript too
-example.greet()
-				</code>
-			</pre>
-			<style>
-				#event-handling code{
-					font-size: 20px;	
-				}
-			</style>
-		</section>
-
-	<section class="slide" class="modifiers">
-		<h2>Modifiers</h2>
-		<pre>
-			<code class="html">
-&lt;form v-on:submit.prevent="onSubmit"&gt; ... &lt;/form&gt;
-&lt;div v-on:click.once.stop="doSmth"&gt;Do something&lt;/div&gt;
-
-&lt;!-- Alt + C --&gt;
-&lt;input v-on:keyup.alt.67="clear"&gt;
-
-&lt;!-- Ctrl + Click --&gt;
-&lt;div v-on:click.ctrl="doSomething"&gt;Do something&lt;/div&gt;
-			</code>
-		</pre>
-		<style>
-			#modifiers code{
-				font-size: 22px;
-			}
-		</style>
-	</section>
-
-	<section class="slide">
-		<h2>Form Input Bindings</h2>
-		<pre>
-			<code>
-&lt;input v-model="message"&gt;
-&lt;p>Message is: {{ message }}&gt;/p&gt;
-
-&lt;input type="checkbox" v-model="checked"&gt;
-
-&lt;input v-model.number="age" type="number"&gt;
-			</code>
-		</pre>
-	</section>
-
-	<section class="slide" id="watchers">
-		<h2>Watchers</h2>
-		<pre>
-			<code>
-var vm = new Vue({
-  el: '#demo',
-  data: {
-    firstName: 'Foo',
-    lastName: 'Bar',
-    fullName: 'Foo Bar'
-  },
-  watch: {
-    firstName: function (val) {
-      this.fullName = val + ' ' + this.lastName
-    },
-    lastName: function (val) {
-      this.fullName = this.firstName + ' ' + val
-    }
-  }
-})				
-			</code>
-		</pre>
-		<style>
-			#watchers code {
-				font-size: 18px;
-			}
-		</style>
-	</section>
-
-	<section class="slide" id="computed">
-			<h2>Computed Properties</h2>
-			<pre>
-				<code>
-&lt;div id="example"&gt;
-	&lt;p&gt;Full name: "{{ fullName }}"&lt;/p&gt;
-&lt;/div&gt;
-				</code>
-			</pre>
-			<pre>
-				<code>
-var vm = new Vue({
-	el: '#demo',
-	data: {
-		firstName: 'Foo',
-		lastName: 'Bar'
-	},
-	computed: {
-		fullName: function () {
-			return firstName + ' ' + this.lastName
-		}
-	}
-})	
-				</code>
-			</pre>
-			<style>
-				#computed code{
-					font-size: 18px;
-				}
-			</style>
-		</section>
-
 	<section class="slide" id="class-bindings">
 		<h2>Class Bindings</h2>
 		<pre>
 			<code class="html">
 &lt;div :class="{ active: isActive }"&gt;&lt;/div&gt;
-&lt;div class="static
+<span class="next">&lt;div class="static"
   :class="{ active: isActive, 'text-danger': hasError }"&gt;
-&lt;/div&gt;
-&lt;div :class="classObject"&gt;&lt;/div&gt;
+&lt;/div&gt;</span>
+<span class="next">&lt;div :class="classObject"&gt;&lt;/div&gt;</span>
 			</code>
 		</pre>
-		<pre>
+		<pre class="next">
 			<code class="js">
 data: {
 	classObject: {
@@ -726,6 +626,177 @@ data: {
 		</style>
 	</section>
 
+	<section class="slide" id="custom-directives">
+		<h2>Custom Directives</h2>
+		<pre>
+			<code class="js">
+// Register a global custom directive called `v-focus`
+Vue.directive('focus', {
+	// When the bound element is inserted into the DOM...
+	inserted: function (el, binding, vnode) {
+		// Focus the element
+		el.focus()
+	}
+})
+			</code>
+		</pre>
+		<pre>
+			<code class="html">
+&ltinput v-focus&gt
+			</code>
+		</pre>
+		<style>
+			#custom-directives code{
+				font-size: 22px;
+			}
+		</style>
+	</section>
+
+	<section class="slide" id="event-handling">
+			<h2>Event Handling</h2>
+			<pre>
+				<code>
+&lt;button v-on:click="greet">Greet&lt;/button&gt;
+<span class="next">&lt;button @click="greet">Greet&lt;/button&gt;</span>
+				</code>
+			</pre>
+			<pre>
+				<code>
+var example = new Vue({
+	...
+	methods: {
+		greet: function (event) {
+			alert('Hello ' + this.name + '!')
+		}
+	}
+})
+// you can invoke methods in JavaScript too
+example.greet()
+				</code>
+			</pre>
+			<style>
+				#event-handling code{
+					font-size: 20px;	
+				}
+			</style>
+		</section>
+
+	<section class="slide" class="modifiers">
+		<h2>Modifiers</h2>
+		<pre>
+			<code class="html">
+&lt;form v-on:submit.prevent="onSubmit"&gt; ... &lt;/form&gt;
+<span class="next">&lt;div v-on:click.once.stop="doSmth"&gt;Do something&lt;/div&gt;</span>
+<span class="next">
+&lt;!-- Alt + C --&gt;
+&lt;input v-on:keyup.alt.67="clear"&gt;
+</span>
+<span class="next">&lt;!-- Ctrl + Click --&gt;
+&lt;div v-on:click.ctrl="doSomething"&gt;Do something&lt;/div&gt;</span>
+			</code>
+		</pre>
+		<style>
+			#modifiers code{
+				font-size: 22px;
+			}
+		</style>
+	</section>
+
+	<section class="slide">
+		<h2>Form Input Bindings</h2>
+		<pre>
+			<code>
+&lt;input v-model="message"&gt;
+&lt;p>Message is: {{ message }}&gt;/p&gt;
+
+&lt;input type="checkbox" v-model="checked"&gt;
+
+&lt;input v-model.number="age" type="number"&gt;
+			</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Filters</h2>
+		<pre>
+			<code class="html">
+{{ message | upperCase }}
+&lt;div v-bind:id="rawId | formatId"&gt;&lt;/div&gt;
+			</code>
+		</pre>
+		<pre>
+			<code class="js">
+Vue.filter('upperCase', function (value) {
+  return value.toUpperCase()
+})
+			</code>
+		</pre>
+		<pre>
+			<code class="html">
+{{ message | filterA | filterB('arg1', arg2) }}
+			</code>
+		</pre>
+	</section>
+
+	<section class="slide" id="watchers">
+		<h2>Watchers</h2>
+		<pre>
+			<code>
+var vm = new Vue({
+  el: '#demo',
+  data: {
+    firstName: 'Foo',
+    lastName: 'Bar',
+    fullName: 'Foo Bar'
+  },
+  watch: {
+    firstName: function (val) {
+      this.fullName = val + ' ' + this.lastName
+    },
+    lastName: function (val) {
+      this.fullName = this.firstName + ' ' + val
+    }
+  }
+})				
+			</code>
+		</pre>
+		<style>
+			#watchers code {
+				font-size: 18px;
+			}
+		</style>
+	</section>
+
+	<section class="slide" id="computed">
+			<h2>Computed Properties</h2>
+			<pre>
+				<code class="html">
+&lt;p&gt;Full name: "{{ fullName }}"&lt;/p&gt;
+				</code>
+			</pre>
+			<pre>
+				<code>
+var vm = new Vue({
+	...,
+	data: {
+		firstName: 'Foo',
+		lastName: 'Bar'
+	},
+	computed: {
+		fullName: function () {
+			return this.firstName + ' ' + this.lastName
+		}
+	}
+})	
+				</code>
+			</pre>
+			<style>
+				#computed code{
+					font-size: 18px;
+				}
+			</style>
+		</section>
+
 	<section class="slide">
 			<h2>Components</h2>
 			<pre>
@@ -761,6 +832,27 @@ new Vue({
 		</pre>
 	</section>
 
+	<section class="slide" id="lifecycle-example">
+		<h2>Lifecycle Hooks</h2>
+		<pre>
+			<code class="js">
+Vue.component('my-component', {
+	template: '&lt;div&gt;A custom component!&lt;/div&gt;',
+	data: function(){
+		return { a: 1 }
+	},
+	created: function () {
+		// `this` points to the component instance
+		console.log('a is: ' + this.a)
+	},
+	mounted: function () {
+		//...
+	}
+})
+			</code>
+		</pre>
+	</section>
+
 	<section class="slide" id="lifecycle">
 		<figure>
 			<img class="cover" src="pictures/lifecycle-1.png">
@@ -772,25 +864,7 @@ new Vue({
 		</style>
 	</section>
 
-	<section class="slide" id="lifecycle-example">
-		<h2>Lifecycle Hooks</h2>
-		<pre>
-			<code class="js">
-Vue.component('my-component', {
-	template: '&lt;div&gt;A custom component!&lt;/div&gt;',
-	data: {
-		a: 1
-	},
-	created: function () {
-		// `this` points to the component instance
-		console.log('a is: ' + this.a)
-	}
-})
-			</code>
-		</pre>
-	</section>
-
-	<section class="slide">
+	<!-- <section class="slide">
 		<h2>Application as a tree of reusable self-contained components</h2>
 		<figure>
 			<img class="cover" src="pictures/components.png">
@@ -798,6 +872,19 @@ Vue.component('my-component', {
 		<style>
 			#layers .cover{
 				width: 100%;
+			}
+		</style>
+	</section> -->
+
+	<section class="slide">
+		<h2 class="shout shrink">Single file components</h2>
+		<style>
+			.shout.shrink::after{
+				background: none;
+			}
+			.shout.shrink{
+				color: black;
+				font-size: 80px;
 			}
 		</style>
 	</section>
@@ -810,7 +897,7 @@ Vue.component('my-component', {
 		</style>
 	</section>
 
-	<section class="slide grid" id="composing">
+	<section class="slide" id="composing">
 		<h2>Composing Components</h2>
 		<figure>
 			<img class="cover" src="pictures/props-events.png">
@@ -827,14 +914,14 @@ Vue.component('my-component', {
 		<h2>Props</h2>
 		<pre>
 			<code class="html">
-&lt;child my-message="hello!"&gt;&lt;/child&gt;
+&lt;child message="hello!"&gt;&lt;/child&gt;
+&lt;child :message="myMessage"&gt;&lt;/child&gt;
 			</code>
 		</pre>
 		<pre>
 			<code class="js">
 Vue.component('child', {
-	// camelCase in JavaScript
-	props: ['myMessage'],
+	props: ['message'],
 	template: '&lt;span&gt;{{ myMessage }}&lt;/span&gt;'
 })
 			</code>
@@ -866,14 +953,14 @@ props: {
 		<pre>
 			<code class="html">
 &lt;div id="counter-event-example"&gt;
-	&lt;p&gt;{{ total }}&lt;/p&gt;
-	&lt;button-counter @increment="incrementTotal"&gt;&lt;/button-counter&gt;
+	&lt;button-counter @increment="doSomethig"&gt;&lt;/button-counter&gt;
 &lt;/div&gt;
 			</code>
 		</pre>
 		<pre>
 			<code class="js">
 Vue.component('button-counter', {
+  ...,
   template: '&lt;button @click="incrementCounter"&gt;{{ counter }}&lt;/button&gt;',
   methods: {
     incrementCounter: function () {
@@ -890,29 +977,7 @@ Vue.component('button-counter', {
 		</style>
 	</section>
 
-	<section class="slide">
-		<h2>Filters</h2>
-		<pre>
-			<code class="html">
-{{ message | upperCase }}
-&lt;div v-bind:id="rawId | formatId"&gt;&lt;/div&gt;
-			</code>
-		</pre>
-		<pre>
-			<code class="js">
-Vue.filter('upperCase', function (value) {
-  return value.toUpperCase()
-})
-			</code>
-		</pre>
-		<pre>
-			<code class="html">
-{{ message | filterA | filterB('arg1', arg2) }}
-			</code>
-		</pre>
-	</section>
-
-	<section class="slide grid" id="mixins">
+	<section class="slide" id="mixins">
 		<h2>Mixins</h2>
 		<p>Flexible way to distribute reusable functionalities for Vue components</p>
 		<pre>
@@ -943,7 +1008,7 @@ var component = new Component() // => "hello from mixin!"
 		<p>Plugins usually add global-level functionality to Vue</p>
 		<ol>
 			<li class="next">Add some global methods or properties</li>
-			<li class="next">Add one or more global assets: directives/filters/transitions etc</li>
+			<li class="next">Add one or more global assets: directives/filters/components etc</li>
 			<li class="next">Add some component options by global mixin</li>
 			<li class="next">Add some Vue instance methods by attaching them to Vue.prototype</li>
 			<li class="next">A library that provides an API of its own, while at the same time injecting some combination of the above</li>
@@ -988,21 +1053,32 @@ Vue.use(MyPlugin, { someOption: true })
 	</section> -->
 
 	<section class="slide">
+		<h2 class="shout shrink">Ecosystem</h2>
+		<style>
+			.shout.shrink::after{
+				background: none;
+			}
+			.shout.shrink{
+				color: black;
+				font-size: 80px;
+			}
+		</style>
+	</section>
+
+	<section class="slide">
 		<h2>Vue Router</h2>
 		<ul>
+			<li>Modular, component-based router configuration</li>				
 			<li>Nested route/view mapping</li>
-			<li>Modular, component-based router configuration</li>
-			<li>Route params, query, wildcards</li>
-			<li>Navigation Guards</li>
+			<li>Route params, query</li>
 			<li>View transition effects powered by Vue.js' transition system</li>
-			<li>Fine-grained navigation control</li>
+			<li>Fine-grained navigation control (navigation guards)</li>
 			<li>Links with automatic active CSS classes</li>
 			<li>HTML5 history mode or hash mode, with auto-fallback in IE9</li>
-			<li>Customizable Scroll Behavior</li>
 		</ul>
 	</section>
 
-	<section class="slide grid" id="vuex">
+	<section class="slide" id="vuex">
 		<h2>State management with Vuex</h2>
 		<ul>
 			<li class="next">Vuex is a <b>state management pattern + library</b> for Vue.js applications</li>
@@ -1039,12 +1115,15 @@ Vue.use(MyPlugin, { someOption: true })
 			and improving the load time of your pages</p>
 	</section>
 
-	<section class="slide grid" id="nuxt">
+	<section class="slide" id="nuxt">
 		<h2>Nuxt.js</h2>
-		<p>Nuxt.js is a higher-level framework built on top of the Vue ecosystem which provides
-			 an extremely streamlined development experience for writing universal Vue
-			 applications</p>
-		<img src="pictures/nuxt.png">
+		<div class="next">
+			<p>Nuxt.js is a higher-level framework built on top of the Vue ecosystem which provides
+					an extremely streamlined development experience for writing universal Vue
+					applications</p>
+				<img src="pictures/nuxt.png">
+		</div>
+		
 		<style>
 			#nuxt img{
 				position: absolute;
@@ -1078,7 +1157,7 @@ Vue.use(MyPlugin, { someOption: true })
 		</figure>
 	</section>
 
-	<section class="slide grid" id="cli">
+	<section class="slide" id="cli">
 		<h2>Vue CLI</h2>
 		<img class="cover" src="pictures/vue-cli.jpg">
 		<style>
@@ -1090,7 +1169,7 @@ Vue.use(MyPlugin, { someOption: true })
 		</style>
 	</section>
 
-	<section class="slide grid" id="dev-tool">
+	<section class="slide" id="dev-tool">
 		<h2>Chrome Devtools Extension</h2>
 		<figure>
 			<img class="cover" src="pictures/dev-tools.png">
@@ -1115,7 +1194,7 @@ Vue.use(MyPlugin, { someOption: true })
 		</style>
 	</section>
 
-	<section class="slide grid" id="comp-frameworks">
+	<section class="slide" id="comp-frameworks">
 		<h2>Component Frameworks</h2>
 		<img class="img1" src="pictures/vuteify.svg">
 		<img class="img2" src="pictures/vue-bootstrap.png">
@@ -1160,7 +1239,7 @@ Vue.use(MyPlugin, { someOption: true })
 		</style>
 	</section>
 
-	<section class="slide grid" id="awesome">
+	<section class="slide" id="awesome">
 		<figure>
 			<img class="cover" src="pictures/vue-awesome.png">
 		</figure>
