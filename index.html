@@ -28,7 +28,10 @@
 			margin-left: 0;
 			width: auto;
 			overflow: visible;
-	}
+		}
+		.slide::after{
+			content: none
+		}
 	</style>
 </head>
 <body class="shower list">
@@ -70,7 +73,7 @@
 		</style>
 	</section>
 
-	<section class="slide">
+	<!-- <section class="slide">
 		<h2>Cергій Присяжнюк</h2>
 		<ul>
 			<li>Viseven</li>
@@ -78,7 +81,7 @@
 			<li>Cobalt Framework</li>
 			<li>HTML, JS, TS, Node.js, MVVM, Vue.js</li>
 		</ul>
-	</section>
+	</section> -->
 
 	<section class="slide">
 		<h2 class="shout shrink">Origination</h2>
@@ -145,26 +148,7 @@
 		</style>
 	</section>
 
-	<section class="slide" id="quote">
-		<figure class="cover">
-			<blockquote>
-				<p>I figured, what if I could just extract the part that I really<br>
-					liked about Angular and build something really lightweight<br>
-					without all the extra concepts involved?
-				</p>
-			</blockquote>
-			<figcaption>Evan You</figcaption>
-		</figure>
-		<style>
-			#quote p{
-				font-size: 32px;
-    			white-space: nowrap;
-			}
-		</style>
-	</section>
-
-	<section class="slide" id="dejavu">
-		<!-- <h2>Deja Vu<span style="opacity: 0.3">e</span>?</h2> -->
+	<!-- <section class="slide" id="dejavu">
 		<h2>Deja Vu(e)?</h2>
 		<figure>
 			<img class="cover" src="pictures/dejavu.jpg">
@@ -174,7 +158,7 @@
 				top: 56%;
 			}
 		</style>
-	</section>
+	</section> -->
 
 	<section class="slide" id="stars">
 		<h2>Popularity</h2>
@@ -243,6 +227,24 @@
 		</style>
 	</section>
 
+	<section class="slide" id="quote">
+		<figure class="cover">
+			<blockquote>
+				<p>I figured, what if I could just extract the part that I really<br>
+					liked about Angular and build something really lightweight<br>
+					without all the extra concepts involved?
+				</p>
+			</blockquote>
+			<figcaption>Evan You</figcaption>
+		</figure>
+		<style>
+			#quote p{
+				font-size: 32px;
+    			white-space: nowrap;
+			}
+		</style>
+	</section>
+
 	<section class="slide" id="comparison">
 		<h2>Vue vs React vs Angular</h2>
 		<table>
@@ -277,7 +279,7 @@
 				<td>143 KB</td>
 			</tr>
 			<tr class="next">
-				<td>Performance* (slowdown):</td>
+				<td>Performance*:</td>
 				<td>1.33</td>
 				<td>1.26</td>
 				<td>1.33</td>
@@ -335,10 +337,6 @@
 			<li class="next">
 				Vue (pronounced /vjuː/, like <b>view</b>) is a <b>progressive</b> framework
 				for building user interfaces
-			</li><br/>
-			<li class="next">
-				Unlike other monolithic frameworks, Vue is
-				designed from the ground up to be incrementally adoptable
 			</li><br/>
 			<li class="next">
 				The core library is focused on the view layer only, and is easy to pick up
@@ -429,6 +427,7 @@ var app = new Vue({
 			#hello-world .box{
 				display: flex;
 				justify-content: space-between;
+				font-size: 28px;
 			}
 		</style>
 	</section>
@@ -476,8 +475,17 @@ var app = new Vue({
 			<pre>
 				<code class="html">
 <span>&lt;span&gt;Message: {{ msg }}&lt;/span&gt;</span>
-<span class="next">&lt;span v-once&gt;This will never change: {{ msg }}&lt;/span&gt;</span>
+<span class="next">&lt;span&gt;{{ number + 1 }}&lt;/span&gt;</span>
 <span class="next">&lt;span v-html="rawHtml"&gt;&lt;/span&gt;</span>
+<span class="next">&lt;span&gt;Message: {{ msg | upperCase }}&lt;/span&gt;</span>
+				</code>
+			</pre>
+			<pre class="next">
+				<!-- <code class=""></code> -->
+				<code class="js">
+Vue.filter('upperCase', function (value) {
+	return value.toUpperCase()
+})
 				</code>
 			</pre>
 		</section>
@@ -492,7 +500,29 @@ var app = new Vue({
 			</pre>
 		</section>
 	
-		<section class="slide">
+		<!-- <section class="slide">
+			<h2>Filters</h2>
+		<pre>
+			<code class="html">
+{{ message | upperCase }}
+&lt;div v-bind:id="rawId | formatId"&gt;&lt;/div&gt;
+			</code>
+		</pre>
+		<pre>
+			<code class="js">
+Vue.filter('upperCase', function (value) {
+	return value.toUpperCase()
+})
+			</code>
+		</pre>
+		<pre class="next">
+			<code class="html">
+{{ message | filterA | filterB('arg1', arg2) }}
+			</code>
+		</pre>
+		</section> -->
+
+		<!-- <section class="slide">
 			<h2>Using JavaScript Expressions</h2>
 			<pre>
 				<code class="html">
@@ -502,7 +532,7 @@ var app = new Vue({
 &lt;div v-bind:id="'list-' + id"&gt;&lt;/div&gt;
 				</code>
 			</pre>
-		</section>
+		</section> -->
 
 	<section class="slide" id="conditional">
 		<h2>Conditional Rendering</h2>
@@ -573,7 +603,8 @@ var app = new Vue({
 		<h2>Class and Style Bindings</h2>
 		<pre>
 			<code class="html">
-&lt;div :class="{ active: isActive }"&gt;&lt;/div&gt;
+&lt;div v-bind:class="{ active: isActive }"&gt;&lt;/div&gt;
+
 <span class="next">&lt;div class="static"
   :class="{ active: isActive, 'text-danger': hasError }"&gt;
 &lt;/div&gt;</span>
@@ -666,13 +697,11 @@ new Vue({
 		}
 	}
 })
-// you can invoke methods in JavaScript too
-example.greet()
 				</code>
 			</pre>
 			<style>
 				#event-handling code{
-					font-size: 20px;	
+					font-size: 24px;	
 				}
 			</style>
 		</section>
@@ -712,7 +741,7 @@ example.greet()
 		</pre>
 	</section>
 
-	<section class="slide">
+	<!-- <section class="slide">
 		<h2>Filters</h2>
 		<pre>
 			<code class="html">
@@ -732,7 +761,7 @@ Vue.filter('upperCase', function (value) {
 {{ message | filterA | filterB('arg1', arg2) }}
 			</code>
 		</pre>
-	</section>
+	</section> -->
 
 	<section class="slide" id="watchers">
 		<h2>Watchers</h2>
@@ -772,7 +801,6 @@ var vm = new Vue({
 			<pre>
 				<code>
 var vm = new Vue({
-	...,
 	data: {
 		firstName: 'Foo',
 		lastName: 'Bar'
@@ -787,7 +815,7 @@ var vm = new Vue({
 			</pre>
 			<style>
 				#computed code{
-					font-size: 20px;
+					font-size: 22px;
 				}
 			</style>
 		</section>
@@ -863,6 +891,13 @@ new Vue({
 		'my-component': MyComponent
 	}
 })
+			</code>
+		</pre>
+		<pre>
+			<code class="html">
+&lt;div id="app"&gt;
+	&lt;my-component&gt;&lt;/my-component&gt;
+&lt;/div&gt;
 			</code>
 		</pre>
 	</section>
@@ -1036,10 +1071,9 @@ new Vue({
 		<pre>
 			<code class="js">
 MyPlugin.install = function (Vue, options) {
-  Vue.myGlobalMethod = function () {...}
-  Vue.directive('my-directive', {...})
-  Vue.mixin(...)
-  Vue.prototype.$myMethod = function (methodOptions) {...}
+  Vue.prototype.$myMethod = function ()) {
+	  //...
+	}
 }
 
 // calls `MyPlugin.install(Vue)`
