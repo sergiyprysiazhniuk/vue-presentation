@@ -41,23 +41,45 @@
 		<p>Serhii Prysiazhniuk</p>
 	</header>
 
+	<section class="slide" id="geek">
+		<figure>
+			<img class="cover" src="pictures/geek.jpg">
+		</figure>
+		<style>
+			#geek .cover {
+				width: 100%;
+			}
+		</style>
+	</section>
+
 	<section class="slide" id="cover">
 		<h2>Vue.js - The Progressive JavaScript Framework</h2>
 		<figure>
 			<img class="cover" src="pictures/vue-logo.png">
-			<figcaption class="white">
-				<a href="http://fiftyfootshadows.net/">© John Carey</a>
-			</figcaption>
+			<!-- <figcaption class="white"> -->
+				<!-- <a href="http://fiftyfootshadows.net/">© John Carey</a> -->
+			<!-- </figcaption> -->
 		</figure>
+		<div class="box">
+			<p>Сергій Присяжнюк</p>
+			<p>Viseven</p>
+		</div>
 		<style>
 			#cover h2 {
-				margin:430px 0 0;
+				margin: 0 0 0;
 				color:#000;
 				text-align:center;
 				font-size:70px;
 				}
 			#cover .cover {
-				top: 40%;
+				width: 30%;
+    			top: 56%;
+			}
+			#cover .box{
+				margin-top: 400px;
+				font-size: 32px;
+				display: flex;
+				justify-content: space-between;
 			}
 		</style>
 	</section>
@@ -428,6 +450,52 @@ var app = new Vue({
 				display: flex;
 				justify-content: space-between;
 				font-size: 28px;
+				align-items: center;
+			}
+		</style>
+	</section>
+
+	<section class="slide" id="render">
+		<h2>Render Functions</h2>
+		<!-- <img src="pictures/arrow.png" alt=""> -->
+		<div class="box">
+			<pre class="html">
+				<code>
+&lt;div class="message"&gt;
+  Hello World!
+&lt;/div&gt;
+				</code>
+
+			</pre>
+			<img src="pictures/arrow.png" alt="">			
+			<pre class="javascript">
+				<code>
+render (h) {
+	return 	h(
+		'div',
+		{ class: 'message' },
+		['Hello World!']
+	)
+}
+				</code>
+			</pre>
+		</div>
+		
+		<style>
+			#render pre{
+				margin: 0
+			}
+			#render .box{
+				display: flex;
+				justify-content: space-between;
+				font-size: 20px;
+    			align-items: center;
+			}
+			#render img{
+				/* position: absolute; */
+				width: 100px;
+				/* top: 100px; */
+				/* left: 100px; */
 			}
 		</style>
 	</section>
@@ -458,7 +526,7 @@ var app = new Vue({
 	</section>
 
 	<section class="slide">
-		<h2 class="shout shrink">Declarative rendering</h2>
+		<h2 class="shout shrink">Templates</h2>
 		<style>
 			.shout.shrink::after{
 				background: none;
@@ -763,7 +831,7 @@ Vue.filter('upperCase', function (value) {
 		</pre>
 	</section> -->
 
-	<section class="slide" id="watchers">
+	<!-- <section class="slide" id="watchers">
 		<h2>Watchers</h2>
 		<pre>
 			<code>
@@ -789,7 +857,7 @@ var vm = new Vue({
 				font-size: 22px;
 			}
 		</style>
-	</section>
+	</section> -->
 
 	<section class="slide" id="computed">
 			<h2>Computed Properties</h2>
@@ -902,6 +970,17 @@ new Vue({
 		</pre>
 	</section>
 
+	<section class="slide" id="lifecycle">
+		<figure>
+			<img class="cover" src="pictures/lifecycle-1.png">
+		</figure>
+		<style>
+			#layers .cover{
+				width: 100%;
+			}
+		</style>
+	</section>
+
 	<section class="slide" id="lifecycle-example">
 		<h2>Lifecycle Hooks</h2>
 		<pre>
@@ -920,17 +999,6 @@ Vue.component('my-component', {
 })
 			</code>
 		</pre>
-	</section>
-
-	<section class="slide" id="lifecycle">
-		<figure>
-			<img class="cover" src="pictures/lifecycle-1.png">
-		</figure>
-		<style>
-			#layers .cover{
-				width: 100%;
-			}
-		</style>
 	</section>
 
 	<!-- <section class="slide">
@@ -1058,11 +1126,11 @@ new Vue({
 		<h2>Plugins</h2>
 		<p>Plugins usually add global-level functionality to Vue</p>
 		<ol>
-			<li class="next">Add some global methods or properties</li>
-			<li class="next">Add one or more global assets: directives/filters/components etc</li>
-			<li class="next">Add some component options by global mixin</li>
-			<li class="next">Add some Vue instance methods by attaching them to Vue.prototype</li>
-			<li class="next">A library that provides an API of its own, while at the same time injecting some combination of the above</li>
+			<li>Add global methods or properties</li>
+			<li>Add global assets: directives/filters/components etc</li>
+			<li>Add component options by global mixin</li>
+			<li>Add Vue instance methods by attaching them to Vue.prototype</li>
+			<li>A library that provides an API of its own, while at the same time injecting some combination of the above</li>
 		</ol>
 	</section>
 
@@ -1115,16 +1183,31 @@ Vue.use(MyPlugin, { someOption: true })
 		</style>
 	</section>
 
+	<section class="slide" id="router">
+		<h2>Vue Router</h2>
+		<figure>
+			<img class="cover" src="pictures/router.png">
+		</figure>
+		<style>
+			#router .cover{
+				width: 60%;
+			}
+		</style>
+	</section>
+
 	<section class="slide">
 		<h2>Vue Router</h2>
 		<ul>
-			<li>Modular, component-based router configuration</li>				
-			<li>Nested route/view mapping</li>
-			<li>Route params, query</li>
-			<li>View transition effects powered by Vue.js' transition system</li>
-			<li>Fine-grained navigation control (navigation guards)</li>
-			<li>Links with automatic active CSS classes</li>
-			<li>HTML5 history mode or hash mode, with auto-fallback in IE9</li>
+			<li>Nested routes</li>				
+			<li>Named routes</li>
+			<li>Named views</li>
+			<li>Navigation guards</li>
+			<li>Active links</li>
+			<li>Redirect</li>
+			<li>Route matching</li>
+			<li>Transitions</li>			
+			<li>Lazy loading</li>
+			<li>Scroll behavior</li>
 		</ul>
 	</section>
 
@@ -1206,7 +1289,6 @@ Vue.use(MyPlugin, { someOption: true })
 			<li>ES6/ES7 Transpilation</li>
 			<li>Hot module replacement in Development</li>
 			<li>Pre-processor: Sass, Less, Stylus, etc.</li>
-			<li>Extending with Modular architecture</li>
 		</ul>
 	</section>
 
